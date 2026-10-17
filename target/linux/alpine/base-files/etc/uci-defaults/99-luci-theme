@@ -1,0 +1,6 @@
+#!/bin/sh
+# 首启把 LuCI 默认主题设为 Argon（luci-theme-argon 随固件安装）
+# mediaurlbase 指向 /luci-static/argon 才会真正启用该主题
+uci -q set luci.main.mediaurlbase='/luci-static/argon'
+uci -q commit luci
+exit 0

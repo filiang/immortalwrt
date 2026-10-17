@@ -1,0 +1,14 @@
+#!/bin/sh
+# 首启把 LAN 默认地址设为 10.0.0.1/24
+# 原因：OpenWrt 默认 192.168.1.1 与国内光猫常见 LAN 段冲突，导致进不了管理页
+. /lib/functions.sh 2>/dev/null
+
+if uci -q get network.lan >/dev/null 2>&1; then
+	uci -q set network.lan.ipaddr='10.0.0.1'
+	uci -q set network.lan.netmask='255.255.255.0'
+	uci -q commit network
+	# 首启时 network 可能已按 192.168.1.1 起来，reload 让新地址立即生效
+	/etc/init.d/network reload >/dev/null 2>&1
+fi
+
+exit 0

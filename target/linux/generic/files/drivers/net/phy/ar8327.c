@@ -458,6 +458,9 @@ ar8327_hw_config_of(struct ar8xxx_priv *priv, struct device *dev)
 		case AR8327_REG_PORT_STATUS(0):
 			data->port0_status = val;
 			break;
+		case AR8327_REG_PORT_STATUS(5):
+			data->port5_status = val;
+			break;
 		case AR8327_REG_PORT_STATUS(6):
 			data->port6_status = val;
 			break;
@@ -554,12 +557,14 @@ ar8327_init_port(struct ar8xxx_priv *priv, int port)
 
 	if (port == AR8216_PORT_CPU)
 		t = data->port0_status;
+	else if (port == 5)
+		t = data->port5_status;
 	else if (port == 6)
 		t = data->port6_status;
 	else
 		t = AR8216_PORT_STATUS_LINK_AUTO;
 
-	if (port != AR8216_PORT_CPU && port != 6) {
+	if (port != AR8216_PORT_CPU && port != 5 && port != 6) {
 		/*hw limitation:if configure mac when there is traffic,
 		port MAC may work abnormal. Need disable lan&wan mac at fisrt*/
 		ar8xxx_write(priv, AR8327_REG_PORT_STATUS(port), 0);

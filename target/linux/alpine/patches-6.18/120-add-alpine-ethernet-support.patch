@@ -1,0 +1,16 @@
+--- a/drivers/net/ethernet/Kconfig	2026-09-21 22:02:25.433438671 +0800
++++ b/drivers/net/ethernet/Kconfig	2026-09-21 22:02:25.434017772 +0800
+@@ -203,5 +203,6 @@
+ source "drivers/net/ethernet/wiznet/Kconfig"
+ source "drivers/net/ethernet/xilinx/Kconfig"
+ source "drivers/net/ethernet/xircom/Kconfig"
++source "drivers/net/ethernet/al/Kconfig"
+ 
+ endif # ETHERNET
+--- a/drivers/net/ethernet/Makefile	2026-09-21 22:02:25.434637063 +0800
++++ b/drivers/net/ethernet/Makefile	2026-09-21 22:02:25.435246688 +0800
+@@ -108,3 +108,4 @@
+ obj-$(CONFIG_NET_VENDOR_SYNOPSYS) += synopsys/
+ obj-$(CONFIG_NET_VENDOR_PENSANDO) += pensando/
+ obj-$(CONFIG_OA_TC6) += oa_tc6.o
++obj-$(CONFIG_NET_AL_ETH) += al/

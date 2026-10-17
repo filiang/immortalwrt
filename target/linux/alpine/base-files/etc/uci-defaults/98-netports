@@ -1,0 +1,42 @@
+#!/bin/sh
+uci set wireless.default_radio0.ifname='60GHz-radio0'
+uci set wireless.default_radio1.ifname='5GHz-radio1'
+uci set wireless.default_radio2.ifname='2.4GHz-radio2'
+uci commit wireless
+
+cat > /etc/config/luci_netports << 'LUCI'
+config global 'global'
+	option default_additional_info '1'
+	option default_h_mode '1'
+	option hv_mode_switch_button '1'
+
+config port
+	option ifname 'eth2.2'
+	option name 'WAN'
+	option type 'copper'
+
+config port
+	option ifname 'eth0'
+	option name 'SFP+'
+	option type 'sfp'
+
+config port
+	option ifname 'eth1.1'
+	option name 'LAN 1-6'
+	option type 'copper'
+
+config port
+	option ifname '60GHz-radio0'
+	option name 'WLAN 60GHz'
+	option type 'wifi'
+
+config port
+	option ifname '5GHz-radio1'
+	option name 'WLAN 5GHz'
+	option type 'wifi'
+
+config port
+	option ifname '2.4GHz-radio2'
+	option name 'WLAN 2.4GHz'
+	option type 'wifi'
+LUCI

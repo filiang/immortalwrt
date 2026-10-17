@@ -1492,3 +1492,19 @@ define KernelPackage/nft-connlimit
 endef
 
 $(eval $(call KernelPackage,nft-connlimit))
+
+define KernelPackage/nf-nathelper-ftp
+  SUBMENU:=$(NF_MENU)
+  TITLE:=FTP conntrack and NAT helper
+  KCONFIG:= \
+	CONFIG_NF_CONNTRACK_FTP \
+	CONFIG_NF_NAT_FTP
+  FILES:= \
+	$(LINUX_DIR)/net/$(P_XT)nf_conntrack_ftp.ko \
+	$(LINUX_DIR)/net/$(P_XT)nf_nat_ftp.ko
+  AUTOLOAD:=$(call AutoProbe,nf_conntrack_ftp nf_nat_ftp)
+  DEPENDS:=+kmod-nf-nat
+endef
+
+$(eval $(call KernelPackage,nf-nathelper-ftp))
+

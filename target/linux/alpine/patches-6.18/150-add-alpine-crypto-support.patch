@@ -1,0 +1,6 @@
+--- a/drivers/crypto/Makefile
++++ b/drivers/crypto/Makefile
+@@ -49,3 +49,4 @@ obj-y += starfive/
+ obj-y += cavium/
+ obj-y += ti/
++obj-$(CONFIG_CRYPTO_DEV_AL_CRYPTO) += al/

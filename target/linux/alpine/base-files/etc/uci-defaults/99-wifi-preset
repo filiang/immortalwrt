@@ -1,0 +1,67 @@
+#!/bin/sh
+# 无线首启预设（仅首次启动执行一次，之后自动删除）：
+#
+#  1) 关掉 60GHz(802.11ad/wil6210)；明确开启 2.4GHz 与 5GHz
+#  2) 5GHz 钉在非 DFS 信道，避免雷达事件(DFS)触发 CSA 导致断联
+#       非 DFS：UNII-1 (36-48)、UNII-3 (149-165)
+#       DFS   ：UNII-2A (52-64)、UNII-2C (100-144)
+#  3) 统一监管域 country=CN（默认 country 为空 -> world 域，5G 可用信道很少）
+#  4) 预设 SSID / 密码（psk2 = WPA2-PSK/CCMP）
+
+[ -f /etc/config/wireless ] || /sbin/wifi config 2>/dev/null
+[ -f /etc/config/wireless ] || exit 0
+
+. /lib/functions.sh
+
+SSID='Openwrt'
+KEY='12345678'
+
+set_radio() {
+	local cfg="$1" band
+	config_get band "$cfg" band
+	uci -q set wireless."$cfg".country='CN'
+
+	case "$band" in
+	2g)
+		# 明确开启 2.4GHz
+		uci -q set wireless."$cfg".disabled='0'
+		;;
+	5g)
+		uci -q set wireless."$cfg".disabled='0'
+		# 149 属 UNII-3，非 DFS；149-161 可组满 80MHz，无需 CAC
+		uci -q set wireless."$cfg".channel='149'
+		uci -q set wireless."$cfg".htmode='VHT40'
+		;;
+	60g)
+		# 关闭 60GHz 射频
+		uci -q set wireless."$cfg".disabled='1'
+		;;
+	esac
+}
+
+set_iface() {
+	local cfg="$1" mode dev dband
+	config_get mode "$cfg" mode
+	[ "$mode" = "ap" ] || return 0
+
+	config_get dev "$cfg" device
+	config_get dband "$dev" band
+
+	# 所属射频是 60GHz 的接口一并关闭
+	if [ "$dband" = "60g" ]; then
+		uci -q set wireless."$cfg".disabled='1'
+		return 0
+	fi
+
+	uci -q set wireless."$cfg".ssid="$SSID"
+	uci -q set wireless."$cfg".encryption='psk2'
+	uci -q set wireless."$cfg".key="$KEY"
+	uci -q set wireless."$cfg".disabled='0'
+}
+
+config_load wireless
+config_foreach set_radio wifi-device
+config_foreach set_iface wifi-iface
+uci -q commit wireless
+
+exit 0
