@@ -1,93 +1,111 @@
-<img src="https://avatars.githubusercontent.com/u/53193414?s=200&v=4" alt="logo" width="200" height="200" align="right">
+# ImmortalWrt for Netgear R9000（Annapurna Alpine 平台）
 
-# Project ImmortalWrt
+本分支 `r9000-alpine-port` 基于 **ImmortalWrt master** 进行第三方设备层重构与移植，整合了社区中针对 Alpine 架构（Annapurna Labs AL-514）及 `ar8327` 交换芯片的修复补丁，可编译出内核 6.18 的 ImmortalWrt 固件。
 
-ImmortalWrt is a fork of [OpenWrt](https://openwrt.org), with more packages ported, more devices supported, default optimized profiles and localization modifications for mainland China users.<br/>
-Compared to upstream, we allow to use (non-upstreamable) modifications/hacks to provide better feature/performance/support.
+## 硬件
 
-Default login address: http://192.168.1.1 or http://immortalwrt.lan, username: __root__, password: _none_.
+| 项目 | 规格 |
+|---|---|
+| SoC | Annapurna Labs Alpine AL-514（4× Cortex-A15） |
+| 内存 | 1 GB DDR3 |
+| Flash | 512 MB SLC NAND（Spansion S34MS04G2，2 KB page / 128 KB erase） |
+| 2.4G / 5G | 2× QCA9984（ath10k） |
+| 60GHz | QCA9500（wil6210，默认禁用） |
+| 交换 | ar8327 系 |
 
-## Download
-Built firmware images are available for many architectures and come with a package selection to be used as WiFi home router. To quickly find a factory image usable to migrate from a vendor stock firmware to ImmortalWrt, try the *Firmware Selector*.
+## 🛠️ 分支目前状态
 
-- [ImmortalWrt Firmware Selector](https://firmware-selector.immortalwrt.org/)
+* **[已修复] 网口逻辑顺序**：修正上游源码中 WAN/LAN 错乱的问题，有线网络、拨号及有线转发完全正常。
+* **[已修复] 2.4G Wi-Fi**：驱动加载正常，通过高负载长时测试，运行稳定。
+* **[已屏蔽] 5G Wi-Fi**：测试机型 5G IPEX 天线底座断裂（硬件物理损坏），本分支在软件层面已做规避/屏蔽处理。
+* **[已屏蔽] 60GHz Wi-Fi (802.11ad)**：开源驱动极不稳定，已在编译配置中默认屏蔽。
+* **[已屏蔽] 10G SFP+ 光口**：为提升整体内核及网络稳定性，默认不启用。
 
-If your device is supported, please follow the **Info** link to see install instructions or consult the support resources listed below.
+> 💡 **推荐定位**：本固件适合将 R9000 作为 **有线高性能主路由/弱电箱拨号网关**，或 **2.4G 智能家居专属 AP** 使用。有高速无线需求者建议通过千兆 LAN 口外接纯 AP。
 
-## Development
-To build your own firmware you need a GNU/Linux, BSD or macOS system (case sensitive filesystem required). Cygwin is unsupported because of the lack of a case sensitive file system.<br/>
+## 📦 已验证构建
 
-  ### Requirements
-  To build with this project, Debian 11 is preferred. And you need use the CPU based on AMD64 architecture, with at least 4GB RAM and 25 GB available disk space. Make sure the __Internet__ is accessible.
+| 项目 | 值 |
+|---|---|
+| 内核 | 6.18.52（`target/linux/alpine`，25 个内核补丁） |
+| 目标 | `alpine/generic` → `DEVICE_netgear_r9000` |
+| 最近全清重建 | 2026-10-18，0 错误 |
+| factory.img | 61,866,113 字节 |
+| sha256 | `8c093a0ceb23670b89673febd135bbbfb926be6e9af0703fb3c8c11b53b5df2d` |
+| manifest | 369 个包 / 10 个 zh-cn 语言包 |
 
-  The following tools are needed to compile ImmortalWrt, the package names vary between distributions.
+## 🚀 快速编译
 
-  - Here is an example for Debian/Ubuntu users:<br/>
-    - Method 1:
-      <details>
-        <summary>Setup dependencies via APT</summary>
+1. 克隆本分支：
 
-        ```bash
-        sudo apt update -y
-        sudo apt full-upgrade -y
-        sudo apt install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
-          bzip2 ccache clang cmake cpio curl device-tree-compiler ecj fastjar flex gawk gettext gcc-multilib \
-          g++-multilib git gnutls-dev gperf haveged help2man intltool lib32gcc-s1 libc6-dev-i386 libelf-dev \
-          libglib2.0-dev libgmp3-dev libltdl-dev libmpc-dev libmpfr-dev libncurses-dev libpython3-dev \
-          libreadline-dev libssl-dev libtool libyaml-dev libz-dev lld llvm lrzsz mkisofs msmtp nano \
-          ninja-build p7zip p7zip-full patch pkgconf python3 python3-pip python3-ply python3-docutils \
-          python3-pyelftools qemu-utils re2c rsync scons squashfs-tools subversion swig texinfo uglifyjs \
-          upx-ucl unzip vim wget xmlto xxd zlib1g-dev zstd
-        ```
-      </details>
-    - Method 2:
-      ```bash
-      sudo bash -c 'bash <(curl -s https://build-scripts.immortalwrt.org/init_build_environment.sh)'
-      ```
+```bash
+git clone -b r9000-alpine-port --single-branch https://github.com/filiang/immortalwrt.git
+cd immortalwrt
+```
 
-  Note:
-  - Do everything as an unprivileged user, not root, without sudo.
-  - Using CPUs based on other architectures should be fine to compile ImmortalWrt, but more hacks are needed - No warranty at all.
-  - You must __not__ have spaces or non-ascii characters in PATH or in the work folders on the drive.
-  - If you're using Windows Subsystem for Linux (or WSL), removing Windows folders from PATH is required, please see [Build system setup WSL](https://openwrt.org/docs/guide-developer/build-system/wsl) documentation.
-  - Using macOS as the host build OS is __not__ recommended. No warranty at all. You can get tips from [Build system setup macOS](https://openwrt.org/docs/guide-developer/build-system/buildroot.exigence.macosx) documentation.
-  - For more details, please see [Build system setup](https://openwrt.org/docs/guide-developer/build-system/install-buildsystem) documentation.
+2. 更新并安装 feeds（**必须**，否则 LuCI/插件选项会在 oldconfig 时被丢弃）：
 
-  ### Quickstart
-  1. Run `git clone -b <branch> --single-branch --filter=blob:none https://github.com/immortalwrt/immortalwrt` to clone the source code.
-  2. Run `cd immortalwrt` to enter source directory.
-  3. Run `./scripts/feeds update -a` to obtain all the latest package definitions defined in feeds.conf / feeds.conf.default
-  4. Run `./scripts/feeds install -a` to install symlinks for all obtained packages into package/feeds/
-  5. Run `make menuconfig` to select your preferred configuration for the toolchain, target system & firmware packages.
-  6. Run `make` to build your firmware. This will download all sources, build the cross-compile toolchain and then cross-compile the GNU/Linux kernel & all chosen applications for your target system.
+```bash
+./scripts/feeds update -a
+./scripts/feeds install -a
+```
 
-  ### Related Repositories
-  The main repository uses multiple sub-repositories to manage packages of different categories. All packages are installed via the OpenWrt package manager called opkg. If you're looking to develop the web interface or port packages to ImmortalWrt, please find the fitting repository below.
-  - [LuCI Web Interface](https://github.com/immortalwrt/luci): Modern and modular interface to control the device via a web browser.
-  - [ImmortalWrt Packages](https://github.com/immortalwrt/packages): Community repository of ported packages.
-  - [OpenWrt Routing](https://github.com/openwrt/routing): Packages specifically focused on (mesh) routing.
-  - [OpenWrt Video](https://github.com/openwrt/video): Packages specifically focused on display servers and clients (Xorg and Wayland).
+3. 载入本仓库附带的已验证配置（推荐）：
 
-## Support Information
-For a list of supported devices see the [OpenWrt Hardware Database](https://openwrt.org/supported_devices)
-  ### Documentation
-  - [Quick Start Guide](https://openwrt.org/docs/guide-quick-start/start)
-  - [User Guide](https://openwrt.org/docs/guide-user/start)
-  - [Developer Documentation](https://openwrt.org/docs/guide-developer/start)
-  - [Technical Reference](https://openwrt.org/docs/techref/start)
+```bash
+cp r9000.config .config
+```
 
-  ### Support Community
-  - Support Chat: group [@ctcgfw_openwrt_discuss](https://t.me/ctcgfw_openwrt_discuss) on [Telegram](https://telegram.org/).
-  - Support Chat: group [#immortalwrt](https://matrix.to/#/#immortalwrt:matrix.org) on [Matrix](https://matrix.org/).
+或手动 `make menuconfig`：
 
-## License
-ImmortalWrt is licensed under [GPL-2.0-only](https://spdx.org/licenses/GPL-2.0-only.html).
+* **Target System**: `Annapurna Labs Alpine`
+* **Target Profile**: `Netgear R9000`
+* 中文界面：`LuCI → Translations → Chinese (Simplified)`
 
-## Acknowledgements
-<table>
-  <tr>
-    <td><a href="https://dlercloud.com/"><img src="https://user-images.githubusercontent.com/22235437/111103249-f9ec6e00-8588-11eb-9bfc-67cc55574555.png" width="183" height="52" border="0" alt="Dler Cloud"></a></td>
-    <td><a href="https://www.jetbrains.com/"><img src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_square.png" width="120" height="120" border="0" alt="JetBrains Black Box Logo logo"></a></td>
-    <td><a href="https://sourceforge.net/"><img src="https://sourceforge.net/sflogo.php?type=17&group_id=3663829" alt="SourceForge" width=200></a></td>
-  </tr>
-</table>
+4. 开始编译（容器/root 环境需 `FORCE_UNSAFE_CONFIGURE=1`）：
+
+```bash
+FORCE_UNSAFE_CONFIGURE=1 make -j$(nproc) V=s
+```
+
+5. 产物：
+
+```
+bin/targets/alpine/generic/immortalwrt-alpine-generic-netgear_r9000-squashfs-factory.img
+bin/targets/alpine/generic/immortalwrt-alpine-generic-netgear_r9000-squashfs-sysupgrade.bin
+```
+
+> ⚠️ 请勿在线使用 `opkg` 单独升级内核模块（kmod）；如有插件需求，请在 menuconfig 中勾选并随固件整体编译。
+
+## 💾 刷机与救砖
+
+### 首次从原厂/其他系统刷入（TFTP）
+
+必须在 **TFTP 恢复模式** 下写入 `*-factory.img`：
+
+1. 拔掉路由器电源。
+2. 用顶针按住背面 `Reset` 键不放。
+3. 插上电源，持续按住 `Reset`。
+4. 观察电源指示灯（Power LED）：闪烁橙色 → 缓慢闪烁白色 → 第一波快速闪烁白色 → 极快闪烁白色。
+5. 在指示灯**极快闪烁白色**时释放 `Reset`，进入标准 TFTP 接收状态。
+6. 用 Linux `tftp-hpa` 或 Windows `Tftpd64`，将 `*-factory.img` 推送到 `192.168.1.1`。
+7. **推送完成后静置路由器 5 分钟以上**，等待解压、写入并自动重启。
+
+### 后续升级
+
+* 在系统内通过 LuCI 后台上传 `*-sysupgrade.bin`。
+* **强烈建议**：跨版本升级时**取消勾选"保留配置"**，干净刷入（Clean Flash），避免魔改后的网口命名冲突。
+
+## 🙏 致谢
+
+* [ImmortalWrt](https://github.com/immortalwrt/immortalwrt) / [OpenWrt](https://github.com/openwrt/openwrt)
+* masmbit/Netgear-R9000-Build、egonenar/openwrt 的参考实现
+* fantastic-packages、luci-theme-argon 等社区包
+
+## ⚠️ 免责声明
+
+本分支属于个人技术兴趣维护，底层涉及非官方支持的硬改与屏蔽，刷机存在风险。作者不对因刷写本固件导致的任何形式的硬件损坏（砖机）、数据丢失或网络故障承担责任。请在充分知晓 TFTP 救砖方法的前提下理性折腾。
+
+## 📄 许可
+
+GPL-2.0（与上游一致）
