@@ -23,8 +23,9 @@ set_radio() {
 
 	case "$band" in
 	2g)
-		# 明确开启 2.4GHz
+		# 明确开启 2.4GHz，并启用 HT40（20/40 共存由驱动自动处理，对齐原厂）
 		uci -q set wireless."$cfg".disabled='0'
+		uci -q set wireless."$cfg".htmode='HT40'
 		;;
 	5g)
 		uci -q set wireless."$cfg".disabled='0'
