@@ -28,12 +28,11 @@ set_radio() {
 		uci -q set wireless."$cfg".htmode='HT40'
 		;;
 	5g)
-		# 5G 默认开启：channel 36 / VHT80 / txpower 15 dBm
-		# 说明：默认 30 dBm 会把功放推入非线性区，EVM 变差导致下行 MIMO
-		# 退化为 MCS1/NSS1（实测下行仅约 36 Mbps）；15 dBm 实测链路 650 Mbps、
-		# 跑满宽带。若覆盖不足可小幅上调，但不要回到 30 dBm。
+		# 5G 默认开启：channel 149 / VHT80 / txpower 15 dBm（固定）
+		# 实测：30 dBm 会使功放非线性、下行退化为 MCS1；16 dBm 会导致设备掉线。
+		# 只使用 15 dBm，不再调整功率；2x2 chainmask 由 ath10k 补丁固定。
 		uci -q set wireless."$cfg".disabled='0'
-		uci -q set wireless."$cfg".channel='36'
+		uci -q set wireless."$cfg".channel='149'
 		uci -q set wireless."$cfg".htmode='VHT80'
 		uci -q set wireless."$cfg".txpower='15'
 		;;

@@ -4,7 +4,7 @@
 
 - 内核 **6.18.52**，ImmortalWrt SNAPSHOT（alpine/generic → netgear_r9000）
 - 无线驱动切换为**上游 ath10k + 上游固件**（非 ath10k-ct）
-- **5G 默认开启**（channel 36 / VHT80 / 15 dBm；实测链路 650 Mbps、跑满宽带）；2.4G 默认开启
+- **5G 默认开启**（channel 149 / VHT80 / **15 dBm 固定**；实测稳定跑满宽带）；2.4G 默认开启
 - 60GHz 默认关闭，SSID 固定为 `R9000-60G`
 - 默认 LAN 地址 **10.0.0.1/24**（避开光猫常见 192.168.1.1 网段）
 - 固件：`factory-20261018-1955-chainmask-bp.img`（61,866,113 B）
@@ -28,7 +28,7 @@
 | 稳定性 | 偶发断线 |
 
 - 原厂 QCA NSS 专有驱动可跑 **1733 Mbps（4×4）**，说明射频硬件正常，属 ath10k 驱动/校准层差异
-- `99-wifi-preset` 现默认**开启** 5G：`channel=36` / `VHT80` / `txpower=15`
+- `99-wifi-preset` 现默认**开启** 5G：`channel=149` / `VHT80` / `txpower=15`（固定，不再调整）
 - 手动启用：
 
 ```sh
@@ -50,11 +50,11 @@ wifi reload
 
 ## 已知问题
 
-- 5G 需保持 txpower ≤ 17 dBm；30 dBm 会导致功放过载、下行退化
+- 5G 固定 txpower=15 dBm；30 dBm 功放过载，16 dBm 实测会导致设备掉线
 - 2.4G 可能停留在 20 MHz（20/40 共存）
 - 10G SFP+ 默认不启用
 
 ## 升级提示
 
 - 从旧版本升级会重置 `/etc/openclash/config/`，需重新导入订阅
-- 5G 默认开启（36/VHT80/15dBm）；覆盖不足可小幅上调功率，但不要超过 17 dBm
+- 5G 默认开启（149/VHT80/15dBm）；不要再调整功率
