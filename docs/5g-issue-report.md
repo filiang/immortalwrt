@@ -99,3 +99,21 @@ iw dev 5GHz-radio1 survey dump | grep -A2 "5745 MHz \[in use\]"
 # 射频固件信息
 cat /sys/kernel/debug/ieee80211/phy1/ath10k/firmware_info
 ```
+
+---
+
+## 最终处置（2026-10-18）
+
+- **5G 默认关闭**：`target/linux/alpine/base-files/etc/uci-defaults/99-wifi-preset` 的 `5g` 分支已改为 `disabled='1'`，对应接口（`default_radio1`）一并关闭。
+- 保留 `channel=149`、`htmode=VHT80` 参数，供手动启用。
+- 手动启用方法：
+
+  ```sh
+  uci set wireless.radio1.disabled='0'
+  uci set wireless.default_radio1.disabled='0'
+  uci commit wireless
+  wifi reload
+  ```
+
+- 关闭依据：链0/链1 RSSI 相差约 **22 dB**（-75 vs -53 dBm），下行 2×2 空分复用无法建立，速率被压到 **MCS1/NSS1（65 Mbps PHY）**，重传率约 **158%**，实测下行约 **36 Mbps**、上行约 124 Mbps，偶发断线。
+- 原厂 QCA NSS 驱动可跑 1733 Mbps（4×4），说明射频硬件正常，属 ath10k 驱动/校准层差异。

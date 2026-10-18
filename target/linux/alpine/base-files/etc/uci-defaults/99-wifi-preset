@@ -28,8 +28,12 @@ set_radio() {
 		uci -q set wireless."$cfg".htmode='HT40'
 		;;
 	5g)
-		uci -q set wireless."$cfg".disabled='0'
-		# 149 属 UNII-3，非 DFS；149-161 可组满 80MHz，无需 CAC
+		# 5G 默认关闭：链0 的 RSSI 比链1 低约 22 dB（-75 vs -53），
+		# 下行 2x2 空分复用无法建立，速率被压到 MCS1/NSS1、重传率约 158%，
+		# 实测下行约 36 Mbps、上行约 124 Mbps，偶发断线，暂不可用。
+		# 如需启用：uci set wireless.<radio>.disabled='0' 后执行 wifi reload。
+		uci -q set wireless."$cfg".disabled='1'
+		# 保留下列参数，供手动启用时使用（149 属 UNII-3，非 DFS，无需 CAC）
 		uci -q set wireless."$cfg".channel='149'
 		uci -q set wireless."$cfg".htmode='VHT80'
 		;;
@@ -55,6 +59,15 @@ set_iface() {
 		uci -q set wireless."$cfg".ssid='R9000-60G'
 		uci -q set wireless."$cfg".encryption='psk2'
 		uci -q set wireless."$cfg".key="$KEY"
+		return 0
+	fi
+
+	# 5G 射频默认关闭，接口一并关闭（原因见 set_radio 的 5g 分支）
+	if [ "$dband" = "5g" ]; then
+		uci -q set wireless."$cfg".ssid="$SSID"
+		uci -q set wireless."$cfg".encryption='psk2'
+		uci -q set wireless."$cfg".key="$KEY"
+		uci -q set wireless."$cfg".disabled='1'
 		return 0
 	fi
 
