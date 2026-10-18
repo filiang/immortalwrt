@@ -1,12 +1,12 @@
 # ImmortalWrt for Netgear R9000（Annapurna Alpine 平台）
 
-本分支 `r9000-alpine-port` 基于 **ImmortalWrt master** 进行第三方设备层重构与移植，整合了社区中针对 Alpine 架构（Annapurna Labs AL-514）及 `ar8327` 交换芯片的修复补丁，可编译出内核 6.18 的 ImmortalWrt 固件。
+本分支 `r9000-alpine-port` 基于 **ImmortalWrt master** 进行第三方设备层重构与移植，整合了社区中针对 Alpine 架构（Annapurna Labs AL-314）及 `ar8327` 交换芯片的修复补丁，可编译出内核 6.18 的 ImmortalWrt 固件。
 
 ## 硬件
 
 | 项目 | 规格 |
 |---|---|
-| SoC | Annapurna Labs Alpine AL-514（4× Cortex-A15） |
+| SoC | Annapurna Labs Alpine **AL-314**（4× Cortex-A15 @1.7GHz；原厂启动日志：Device ID = a314 / AL31400-1700） |
 | 内存 | 1 GB DDR3 |
 | Flash | 512 MB SLC NAND（Spansion S34MS04G2，2 KB page / 128 KB erase） |
 | 2.4G / 5G | 2× QCA9984（ath10k） |
