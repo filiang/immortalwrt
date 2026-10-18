@@ -1,0 +1,127 @@
+name: Build vmlinux-btf
+
+on:
+  workflow_dispatch:
+  # quarterly safety net; kernel BTF only changes when the SDK kernel bumps
+  schedule:
+    - cron: '0 4 1 */3 *'
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        arch:
+          - aarch64_cortex-a53
+          - aarch64_cortex-a72
+          - aarch64_generic
+          - arm_cortex-a7_neon-vfpv4
+          - arm_cortex-a9_neon
+          - i386_pentium4
+          - mips_24kc
+          - mipsel_24kc
+          - x86_64
+        sdk:
+          - "24.10"
+          - "25.12"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # A full shadow-kernel compile needs the disk; drop unused toolchains.
+      - name: Free disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/lib/android \
+                      /usr/local/share/boost /opt/hostedtoolcache/CodeQL \
+                      /usr/local/.ghcup 2>/dev/null || true
+          sudo docker image prune -af || true
+          df -h /
+
+      - name: Build vmlinux-btf
+        uses: kenzok8/gh-action-sdk@hash
+        env:
+          CONTAINER: immortalwrt/sdk
+          ARCH: ${{ matrix.arch }}-openwrt-${{ matrix.sdk }}
+          FEEDNAME: vmlinuxbtf
+          PACKAGES: vmlinux-btf
+          NO_REFRESH_CHECK: true
+          IGNORE_ERRORS: true
+          INDEX: 1
+
+      - name: Collect
+        run: |
+          ARCH="${{ matrix.arch }}"
+          mkdir -p dist
+          FEED_DIR="bin/packages/${ARCH}/vmlinuxbtf"
+          for f in "$FEED_DIR"/vmlinux-btf*.ipk "$FEED_DIR"/vmlinux-btf*.apk; do
+            [ -f "$f" ] || continue
+            # apk filenames carry no arch; tag it so assets stay unique
+            base="$(basename "$f")"
+            case "$base" in
+              *.apk) cp -v "$f" "dist/${base%.apk}-${ARCH}.apk" ;;
+              *)     cp -v "$f" "dist/$base" ;;
+            esac
+          done
+          ls -la dist/ || true
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: vmlinux-btf-${{ matrix.sdk }}-${{ matrix.arch }}
+          path: dist/
+          if-no-files-found: warn
+
+  release:
+    needs: build
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - name: Download all packages
+        uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+
+      - name: Flatten + manifest
+        run: |
+          mkdir -p dist
+          find artifacts -type f \( -name '*.ipk' -o -name '*.apk' \) -exec cp -v {} dist/ \;
+          ( cd dist && sha256sum * > ../SHA256SUMS ) || true
+          cp SHA256SUMS dist/ 2>/dev/null || true
+          ls -la dist/
+
+      - name: Publish release
+        uses: ncipollo/release-action@v1
+        with:
+          tag: latest
+          name: 内核 BTF 补全包
+          body: |
+            为 **dae / daed** 提供独立的内核 BTF 数据包，适配**未开启 `CONFIG_DEBUG_INFO_BTF`** 的固件。
+
+            dae/daed 的 CO-RE eBPF 运行时需要内核 BTF（`/sys/kernel/btf/vmlinux`）。官方 OpenWrt、在线 ImageBuilder 等固件常常没开，导致 daed 启动失败——装上对应的 vmlinux-btf 包即可补齐这块。
+
+            ## 如何选包
+
+            按 `uname -r` 内核版本 + 设备架构对号入座：
+
+            | 内核版本 | 固件 / 包管理 | 格式 |
+            |:--------:|:------------:|:----:|
+            | `6.6.x` | 24.10（opkg） | `.ipk` |
+            | `6.12.x` | 25.12（apk） | `.apk` |
+
+            **架构**：`aarch64_generic`（含树莓派 5 的 cortex-a76 等变体）· `aarch64_cortex-a53` · `aarch64_cortex-a72` · `x86_64`
+
+            > 💡 用 [openwrt-daede 一键脚本](https://github.com/kenzok8/openwrt-daede) 安装时会**自动检测内核 BTF、缺失则自动下载安装匹配的包**，无需手动操作。
+
+            ## 校验
+
+            ```sh
+            sha256sum -c SHA256SUMS --ignore-missing
+            ```
+          artifacts: dist/*
+          allowUpdates: true
+          removeArtifacts: true
+          makeLatest: true

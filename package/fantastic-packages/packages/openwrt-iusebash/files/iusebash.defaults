@@ -1,0 +1,7 @@
+#!/bin/sh
+
+sed -i 's|/bin/ash|/bin/bash|g' /etc/passwd
+
+rm -f /tmp/.busybox_ash_history 2>/dev/null
+touch /root/.bash_history
+ln -s /root/.bash_history /tmp/.busybox_ash_history

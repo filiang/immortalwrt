@@ -1,0 +1,53 @@
+name: Export cache
+
+on:
+  schedule:
+  - cron: "0 0 6 * *"
+  workflow_dispatch:
+
+jobs:
+  export_cache:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch:
+          - '25.12'
+
+    steps:
+      - name: Cache ${{ matrix.branch }} DL dependencies
+        uses: actions/cache/restore@v6
+        with:
+          path: ${{ github.workspace }}/DL # MUST same with compile.yml # https://github.com/actions/cache/issues/1653
+          key: Cache-DL-${{ matrix.branch }}-
+          restore-keys: |
+            Cache-DL-${{ matrix.branch }}-
+      - name: Display structure of Cache files
+        shell: bash
+        run: |
+          group() {
+            endgroup
+            echo "::group::  $1"
+            GROUP=1
+          }
+          endgroup() {
+            if [ -n "$GROUP" ]; then
+              echo "::endgroup::"
+            fi
+            GROUP=
+          }
+          trap 'endgroup' ERR
+          #
+          group "find ${{ github.workspace }}/DL -maxdepth 3"
+          sudo find ${{ github.workspace }}/DL -maxdepth 3
+          endgroup
+      - name: Compress DL Cache
+        run: |
+          pushd ${{ github.workspace }}/DL
+          tar --zstd -cf ${{ github.workspace }}/DL-${{ matrix.branch }}.tzst * --owner=0 --group=0 --no-same-owner --no-same-permissions || echo "No files to compress"
+          popd
+      - name: Upload DL Cache artifact
+        uses: actions/upload-artifact@v7
+        with:
+          archive: false
+          path: ${{ github.workspace }}/DL-${{ matrix.branch }}.tzst
+          retention-days: 90
