@@ -3942,7 +3942,7 @@ static u32 al_eth_get_rxfh_indir_size(struct net_device *netdev)
 	return AL_ETH_RX_RSS_TABLE_SIZE;
 }
 
-static int al_eth_get_rxfh(struct net_device *netdev,
+static int __attribute__((unused)) al_eth_get_rxfh(struct net_device *netdev,
 			   struct ethtool_rxfh_param *rxfh)
 {
 	struct al_eth_adapter *adapter = netdev_priv(netdev);
@@ -3958,7 +3958,7 @@ static int al_eth_get_rxfh(struct net_device *netdev,
 	return 0;
 }
 
-static int al_eth_set_rxfh(struct net_device *netdev,
+static int __attribute__((unused)) al_eth_set_rxfh(struct net_device *netdev,
 			   struct ethtool_rxfh_param *rxfh,
 			   struct netlink_ext_ack *extack)
 {
@@ -4286,8 +4286,6 @@ static const struct ethtool_ops al_eth_ethtool_ops = {
 	.get_rxnfc = al_eth_get_rxnfc,
 	.get_sset_count = al_eth_get_sset_count,
 	.get_rxfh_indir_size = al_eth_get_rxfh_indir_size,
-	.get_rxfh = al_eth_get_rxfh,
-	.set_rxfh = al_eth_set_rxfh,
 	.get_channels = al_eth_get_channels,
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(3, 6, 0)

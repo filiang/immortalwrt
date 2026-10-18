@@ -1,6 +1,8 @@
 --- a/drivers/pci/quirks.c
 +++ b/drivers/pci/quirks.c
-@@ -3238,6 +3238,13 @@ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_ATTANSIC, 0xe091,
+@@ -3238,6 +3238,14 @@
+ 			quirk_msi_intx_disable_qca_bug);
+ DECLARE_PCI_FIXUP_FINAL(PCI_VENDOR_ID_ATTANSIC, 0xe091,
  			quirk_msi_intx_disable_qca_bug);
 +
 +/* Amazon Annapurna Labs devices with INTx disable bug */
