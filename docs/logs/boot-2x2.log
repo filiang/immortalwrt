@@ -1,0 +1,2041 @@
+# chainmask 0x3（2×2）版本启动日志
+# 来源：个人 Netgear R9000 实测（2026-10-18）
+# 脱敏：MAC 保留 OUI、后三字节替换为 xx；SSID NETGEAR09* -> MYSSID*
+# 其余内容保持原始串口输出
+
+Annapurna Labs stage 2: stage2_eth3_ram_loader v1.65.1
+
+Executing next!
+
+Annapurna Labs stage 2: stage2.5_loader v1.65.1
+
+SPD I2C Address:00000057
+
+Executing next!
+
+
+
+
+-----------------------------------------------------
+
+
+Stage 3 version: 1.65.1
+
+
+Commit ID: e88c9c4
+
+
+CVOS commit ID: d32367c
+
+
+HAL commit ID: 8b8f7b5
+
+
+Build date: May 20 2015 19:57:35
+
+
+-----------------------------------------------------
+
+
+
+
+
+EEPROM Revision ID = 38
+
+
+Device ID = a314
+
+
+Device Info: AL31400-1700
+
+
+Loading DT to 00100000 (17996 bytes)...
+
+
+Board config ID: alpine_db (hw29765235p0p512p1024p4x4p4x4)
+
+
+Loading application to 00100000 (450240 bytes)...
+
+
+Executing application...
+
+
+
+
+
+
+U-Boot 2015.01-gd836bbb (Jul 22 2016 - 13:32:00)
+
+
+
+U-boot dni1 V1.8 for DNI HW ID: 29765235 NOR flash 0MB; NAND flash 512MB; RAM 1024MB; 1st Radio 4x4; 2nd Radio 4x4
+
+I2C:   ready
+
+DRAM:  1 GiB
+
+WARNING: Caches not enabled
+
+
+
+   _
+
+  /_\  _ __  _ __   __ _ _ __  _   _ _ __ _ __   __ _
+
+ //_\\| '_ \| '_ \ / _` | '_ \| | | | '__| '_ \ / _` |
+
+/  _  \ | | | | | | (_| | |_) | |_| | |  | | | | (_| |
+
+\_/ \_/_| |_|_| |_|\__,_| .__/ \__,_|_|  |_| |_|\__,_|
+
+   __       _           |_|
+
+  / /  __ _| |__  ___
+
+ / /  / _` | '_ \/ __|
+
+/ /__| (_| | |_) \__ \
+
+\____/\__,_|_.__/|___/
+
+               ___             _
+
+ /\ /\        / __\ ___   ___ | |_
+
+/ / \ \_____ /__\/// _ \ / _ \| __|
+
+\ \_/ /_____/ \/  \ (_) | (_) | |_
+
+ \___/      \_____/\___/ \___/ \__|
+
+
+
+Board config ID: alpine_db (hw29765235p0p512p1024p4x4p4x4)
+
+NAND:  512 MiB
+
+*** Warning - bad CRC, using default environment
+
+
+
+  00:00.0     - 1c36:0002 - Network controller
+
+  00:01.0     - 1c36:0001 - Network controller
+
+  00:03.0     - 1c36:0001 - Network controller
+
+  00:04.0     - 1c36:0011 - Cryptographic device
+
+  00:05.0     - 1c36:0021 - Base system peripheral
+
+PCIE_0: Link up. Speed 5GT/s Width x1
+
+  01:00.0     - 1b21:1182 - Bridge device
+
+PCIE_1: Link up. Speed 5GT/s Width x1
+
+  02:00.0     - 1b21:1142 - Serial bus controller
+
+PCIE_2: Link up. Speed 5GT/s Width x1
+
+  03:00.0     - 1ae9:0310 - Network controller
+
+In:    serial
+
+Out:   serial
+
+Err:   serial
+
+eeprom_per_device_init: no valid information found!
+
+eeprom_per_device_init#104: Try reading from NAND flash
+
+eeprom_per_device_init#116: Reading from NAND flash OK
+
+Net:   (QCA8337) Check Status Port 3 status is 0x0
+
+al_eth0, al_eth1 [PRIME], al_eth3
+
+Warning: al_eth3 using MAC address from net device
+
+
+
+Hit any key to stop autoboot:  2  1  0 
+
+
+
+ Client starts...[Listening] for ADVERTISE...TTT
+
+Retry count exceeded; boot the image as usual
+
+
+
+ nmrp server is stopped or failed !
+
+device 0 offset 0x580000, size 0x1fa80000
+
+do_nand: set partition base address to=580000
+
+POWER_LED off --> on
+
+
+
+Loading from device 0: nand0 (offset 0x580000)
+
+runcommand nand set_partition_offset 0x580000
+
+device 0 offset 0x580000, size 0x1fa80000
+
+do_nand: set partition base address to=580000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+
+
+** KERNEL partition size, kernel : 0x3a0000 **
+
+runcommand nand set_partition_offset 0x5a0000
+
+device 0 offset 0x5a0000, size 0x1fa60000
+
+do_nand: set partition base address to=5a0000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x5c0000
+
+device 0 offset 0x5c0000, size 0x1fa40000
+
+do_nand: set partition base address to=5c0000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x5e0000
+
+device 0 offset 0x5e0000, size 0x1fa20000
+
+do_nand: set partition base address to=5e0000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x600000
+
+device 0 offset 0x600000, size 0x1fa00000
+
+do_nand: set partition base address to=600000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x620000
+
+device 0 offset 0x620000, size 0x1f9e0000
+
+do_nand: set partition base address to=620000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x640000
+
+device 0 offset 0x640000, size 0x1f9c0000
+
+do_nand: set partition base address to=640000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x660000
+
+device 0 offset 0x660000, size 0x1f9a0000
+
+do_nand: set partition base address to=660000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x680000
+
+device 0 offset 0x680000, size 0x1f980000
+
+do_nand: set partition base address to=680000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x6a0000
+
+device 0 offset 0x6a0000, size 0x1f960000
+
+do_nand: set partition base address to=6a0000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x6c0000
+
+device 0 offset 0x6c0000, size 0x1f940000
+
+do_nand: set partition base address to=6c0000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x6e0000
+
+device 0 offset 0x6e0000, size 0x1f920000
+
+do_nand: set partition base address to=6e0000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x700000
+
+device 0 offset 0x700000, size 0x1f900000
+
+do_nand: set partition base address to=700000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x720000
+
+device 0 offset 0x720000, size 0x1f8e0000
+
+do_nand: set partition base address to=720000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x740000
+
+device 0 offset 0x740000, size 0x1f8c0000
+
+do_nand: set partition base address to=740000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x760000
+
+device 0 offset 0x760000, size 0x1f8a0000
+
+do_nand: set partition base address to=760000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x780000
+
+device 0 offset 0x780000, size 0x1f880000
+
+do_nand: set partition base address to=780000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x7a0000
+
+device 0 offset 0x7a0000, size 0x1f860000
+
+do_nand: set partition base address to=7a0000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x7c0000
+
+device 0 offset 0x7c0000, size 0x1f840000
+
+do_nand: set partition base address to=7c0000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x7e0000
+
+device 0 offset 0x7e0000, size 0x1f820000
+
+do_nand: set partition base address to=7e0000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x800000
+
+device 0 offset 0x800000, size 0x1f800000
+
+do_nand: set partition base address to=800000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x820000
+
+device 0 offset 0x820000, size 0x1f7e0000
+
+do_nand: set partition base address to=820000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x840000
+
+device 0 offset 0x840000, size 0x1f7c0000
+
+do_nand: set partition base address to=840000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x860000
+
+device 0 offset 0x860000, size 0x1f7a0000
+
+do_nand: set partition base address to=860000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x880000
+
+device 0 offset 0x880000, size 0x1f780000
+
+do_nand: set partition base address to=880000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x8a0000
+
+device 0 offset 0x8a0000, size 0x1f760000
+
+do_nand: set partition base address to=8a0000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x8c0000
+
+device 0 offset 0x8c0000, size 0x1f740000
+
+do_nand: set partition base address to=8c0000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x8e0000
+
+device 0 offset 0x8e0000, size 0x1f720000
+
+do_nand: set partition base address to=8e0000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x900000
+
+device 0 offset 0x900000, size 0x1f700000
+
+do_nand: set partition base address to=900000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+runcommand nand set_partition_offset 0x920000
+
+device 0 offset 0x920000, size 0x1f6e0000
+
+do_nand: set partition base address to=920000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+
+
+** ROOTFS partition size, kernel: 0x3a0000, rootfs: 0x0 **
+
+POWER_LED off --> on
+
+runcommand nand set_partition_offset 0x580000
+
+device 0 offset 0x580000, size 0x1fa80000
+
+do_nand: set partition base address to=580000
+
+runcommand nand set_partition_offset 0x0
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+
+
+** rootfs address : 0x839ffc0 **
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+
+
+## Checking Image at 08000004 ...
+
+   Legacy image found
+
+   Image Name:   ARM ImmortalWrt Linux-6.18.52
+
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+
+   Data Size:    3772290 Bytes = 3.6 MiB
+
+   Load Address: 00008000
+
+   Entry Point:  00008000
+
+   Verifying Checksum ... OK
+
+POWER_LED on --> off 
+
+
+
+## Checking Image at 0839ffc0 ...
+
+   Legacy image found
+
+   Image Name:   ImmortalWrt fake filesystem
+
+   Image Type:   ARM Linux Filesystem Image (uncompressed)
+
+   Data Size:    0 Bytes = 0 Bytes
+
+   Load Address: 00000000
+
+   Entry Point:  00000000
+
+   Verifying Checksum ... OK
+
+POWER_LED off --> on
+
+bootargs=root=ubi0:root rootfstype=ubifs ubi.mtd=3 pci=pcie_bus_perf console=ttyS0,115200
+
+Enable P0/5 Trunking
+
+VLAN Configuration
+
+POWER_LED on --> off 
+
+device 0 offset 0x580000, size 0x1fa80000
+
+do_nand: set partition base address to=580000
+
+
+
+NAND read: device 0 offset 0x580000, size 0x4
+
+ 4 bytes read: OK
+
+
+
+NAND read: device 0 offset 0x580000, size 0x3
+
+ 3 bytes read: OK
+
+POWER_LED off --> on
+
+device 0 whole chip
+
+do_nand: set partition base address to=0
+
+## Booting kernel from Legacy Image at 08000004 ...
+
+   Image Name:   ARM ImmortalWrt Linux-6.18.52
+
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+
+   Data Size:    3772290 Bytes = 3.6 MiB
+
+   Load Address: 00008000
+
+   Entry Point:  00008000
+
+   Verifying Checksum ... OK
+
+## Flattened Device Tree blob at 03b73008
+
+   Booting using the fdt blob at 0x3b73008
+
+   Loading Kernel Image ... OK
+
+   reserving fdt memory region: addr=0 size=100000
+
+   Loading Device Tree to 03b58000, end 03b5f64b ... OK
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+I/O CC forced to 1!
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+
+
+Starting kernel ...
+
+
+
+[    0.000000] Booting Linux on physical CPU 0x0
+
+[    0.000000] Linux version 6.18.52 (root@a1444eb3252e) (arm-openwrt-linux-muslgnueabi-gcc (OpenWrt GCC 14.4.0 r0-2e80427) 14.4.0, GNU ld (GNU Binutils) 2.46.1) #0 SMP Sun Oct 18 00:24:05 2026
+
+[    0.000000] CPU: ARMv7 Processor [412fc0f4] revision 4 (ARMv7), cr=10c5387d
+
+[    0.000000] CPU: div instructions available: patching division code
+
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, PIPT instruction cache
+
+[    0.000000] OF: fdt: Machine model: Annapurna Labs Alpine Dev Board
+
+[    0.000000] earlycon: ns16550a0 at MMIO32 0xfd883000 (options '')
+
+[    0.000000] printk: legacy bootconsole [ns16550a0] enabled
+
+[    0.000000] Memory policy: Data cache writealloc
+
+[    0.000000] Zone ranges:
+
+[    0.000000]   Normal   [mem 0x0000000000000000-0x000000002fffffff]
+
+[    0.000000]   HighMem  [mem 0x0000000030000000-0x000000003fffffff]
+
+[    0.000000] Movable zone start for each node
+
+[    0.000000] Early memory node ranges
+
+[    0.000000]   node   0: [mem 0x0000000000000000-0x000000003fffffff]
+
+[    0.000000] Initmem setup node 0 [mem 0x0000000000000000-0x000000003fffffff]
+
+[    0.000000] OF: reserved mem: Reserved memory: No reserved-memory node in the DT
+
+[    0.000000] percpu: Embedded 14 pages/cpu s27084 r8192 d22068 u57344
+
+[    0.000000] Kernel command line: console=ttyS0,115200 pci=pcie_bus_perf ubi.mtd=ubi earlycon
+
+[    0.000000] printk: log buffer data + meta data: 131072 + 409600 = 540672 bytes
+
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes, linear)
+
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 262144
+
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+
+[    0.000000] rcu: Hierarchical RCU implementation.
+
+[    0.000000] 	Tracing variant of Tasks RCU enabled.
+
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+
+[    0.000000] RCU Tasks Trace: Setting shift to 2 and lim to 1 rcu_task_cb_adjust=1 rcu_task_cpu_ids=4.
+
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+
+[    0.000000] GIC: Using split EOI/Deactivate mode
+
+[    0.000000] Registering 64 msixs, starting at 96
+
+[    0.000000] rcu: srcu_init: Setting srcu_struct sizes based on contention.
+
+[    0.000000] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+
+[    0.000000] arch_timer: cp15 timer running at 50.00MHz (phys).
+
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0xb8812736b, max_idle_ns: 440795202655 ns
+
+[    0.000000] sched_clock: 56 bits at 50MHz, resolution 20ns, wraps every 4398046511100ns
+
+[    0.007987] Switching to timer-based delay loop, resolution 20ns
+
+[    0.014039] clocksource: arm,sp804: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 5096694524 ns
+
+[    0.023415] sched_clock: 32 bits at 375MHz, resolution 2ns, wraps every 5726622718ns
+
+[    0.031301] Calibrating delay loop (skipped), value calculated using timer frequency.. 100.00 BogoMIPS (lpj=500000)
+
+[    0.041726] CPU: Testing write buffer coherency: ok
+
+[    0.046618] pid_max: default: 32768 minimum: 301
+
+[    0.054329] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+
+[    0.061627] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+
+[    0.075139] CPU0: update cpu_capacity 1024
+
+[    0.079229] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+
+[    0.085576] Setting up static identity map for 0x100000 - 0x100060
+
+[    0.091835] rcu: Hierarchical SRCU implementation.
+
+[    0.096626] rcu: 	Max phase no-delay instances is 1000.
+
+[    0.101997] Timer migration: 1 hierarchy levels; 8 children per group; 1 crossnode level
+
+[    0.110162] dyndbg: Ignore empty _ddebug table in a CONFIG_DYNAMIC_DEBUG_CORE build
+
+[    0.117935] smp: Bringing up secondary CPUs ...
+
+[    0.122813] CPU1: update cpu_capacity 1024
+
+[    0.122820] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+
+[    0.123279] CPU2: update cpu_capacity 1024
+
+[    0.123286] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+
+[    0.123713] CPU3: update cpu_capacity 1024
+
+[    0.123720] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+
+[    0.123829] smp: Brought up 1 node, 4 CPUs
+
+[    0.157105] SMP: Total of 4 processors activated (400.00 BogoMIPS).
+
+[    0.163364] CPU: All CPU(s) started in HYP mode.
+
+[    0.167970] CPU: Virtualization extensions available.
+
+[    0.173143] Memory: 1021176K/1048576K available (8346K kernel code, 644K rwdata, 2200K rodata, 1024K init, 245K bss, 24528K reserved, 0K cma-reserved, 262144K highmem)
+
+[    0.191926] VFP support v0.3: implementor 41 architecture 4 part 30 variant f rev 0
+
+[    0.199841] posixtimers hash table entries: 2048 (order: 2, 16384 bytes, linear)
+
+[    0.207259] futex hash table entries: 1024 (65536 bytes on 1 NUMA nodes, total 64 KiB, linear).
+
+[    0.217950] pinctrl core: initialized pinctrl subsystem
+
+[    0.224486] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+
+[    0.230539] DMA: preallocated 256 KiB pool for atomic coherent allocations
+
+[    0.238088] thermal_sys: Registered thermal governor 'fair_share'
+
+[    0.238094] thermal_sys: Registered thermal governor 'bang_bang'
+
+[    0.244190] thermal_sys: Registered thermal governor 'step_wise'
+
+[    0.250182] thermal_sys: Registered thermal governor 'user_space'
+
+[    0.256223] cpuidle: using governor ladder
+
+[    0.266414] cpuidle: using governor menu
+
+[    0.270359] Initializing System Fabric
+
+[    0.274132] Enabling IO Cache Coherency.
+
+[    0.282485] /soc/gic_main: Fixed dependency cycle(s) with /soc/gic_main
+
+[    0.290917] msi override pcie-internal
+
+[    0.294758] msi override pcie-external0
+
+[    0.298635] /soc/pcie-external0: Fixed dependency cycle(s) with /soc/pcie-external0/pcie-legacy-intc
+
+[    0.307847] msi override pcie-external1
+
+[    0.311717] /soc/pcie-external1: Fixed dependency cycle(s) with /soc/pcie-external1/pcie-legacy-intc
+
+[    0.320901] msi override pcie-external2
+
+[    0.324788] /soc/pcie-external2: Fixed dependency cycle(s) with /soc/pcie-external2/pcie-legacy-intc
+
+[    0.339419] usbcore: registered new interface driver usbfs
+
+[    0.344939] usbcore: registered new interface driver hub
+
+[    0.350259] usbcore: registered new device driver usb
+
+[    0.355724] pca953x 0-0020: supply vcc not found, using dummy regulator
+
+[    0.362404] pca953x 0-0020: using no AI
+
+[    0.366849] pps_core: LinuxPPS API ver. 1 registered
+
+[    0.371803] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+
+[    0.380933] PTP clock support registered
+
+[    0.384866] EDAC MC: Ver: 3.0.0
+
+[    0.388881] clocksource: Switched to clocksource arch_sys_counter
+
+[    0.398468] NET: Registered PF_INET protocol family
+
+[    0.403458] IP idents hash table entries: 16384 (order: 5, 131072 bytes, linear)
+
+[    0.411527] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 4096 bytes, linear)
+
+[    0.419881] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+
+[    0.427611] TCP established hash table entries: 8192 (order: 3, 32768 bytes, linear)
+
+[    0.435376] TCP bind hash table entries: 8192 (order: 5, 131072 bytes, linear)
+
+[    0.442722] TCP: Hash tables configured (established 8192 bind 8192)
+
+[    0.449295] MPTCP token hash table entries: 1024 (order: 2, 16384 bytes, linear)
+
+[    0.456796] UDP hash table entries: 512 (order: 3, 28672 bytes, linear)
+
+[    0.463434] UDP-Lite hash table entries: 512 (order: 3, 28672 bytes, linear)
+
+[    0.470720] NET: Registered PF_UNIX/PF_LOCAL protocol family
+
+[    0.476385] PCI: CLS 0 bytes, default 64
+
+[    0.481688] msi override pcie-internal
+
+[    0.485493] al-pcie soc:pcie-internal: PCI host bridge to bus 0000:00
+
+[    0.491934] pci_bus 0000:00: root bus resource [mem 0xfe000000-0xfeffffff]
+
+[    0.498797] pci_bus 0000:00: root bus resource [bus 00]
+
+[    0.504022] pci_bus 0000:00: root bus resource [io  0x1000-0xffff]
+
+[    0.510216] pci 0000:00:00.0: [1c36:0002] type 00 class 0x020000 PCIe Root Complex Integrated Endpoint
+
+[    0.519536] pci 0000:00:00.0: BAR 0 [mem 0xfe000000-0xfe01ffff 64bit]
+
+[    0.525966] pci 0000:00:00.0: BAR 2 [mem 0xfe020000-0xfe020fff 64bit]
+
+[    0.532405] pci 0000:00:00.0: BAR 4 [mem 0xfe024000-0xfe027fff 64bit]
+
+[    0.538845] pci 0000:00:00.0: Max Payload Size set to  128/ 256 (was  128), Max Read Rq  128
+
+[    0.547297] pci 0000:00:00.0: PME# supported from D3hot D3cold
+
+[    0.553147] pci 0000:00:00.0: VF BAR 0 [mem 0x00000000-0x0001ffff 64bit]
+
+[    0.559844] pci 0000:00:00.0: VF BAR 0 [mem 0x00000000-0x0005ffff 64bit]: contains BAR 0 for 3 VFs
+
+[    0.568971] pci 0000:00:01.0: [1c36:0001] type 00 class 0x020000 PCIe Root Complex Integrated Endpoint
+
+[    0.578273] pci 0000:00:01.0: BAR 0 [mem 0xfe040000-0xfe05ffff 64bit]
+
+[    0.584714] pci 0000:00:01.0: BAR 2 [mem 0xfe060000-0xfe060fff 64bit]
+
+[    0.591152] pci 0000:00:01.0: BAR 4 [mem 0xfe064000-0xfe067fff 64bit]
+
+[    0.597589] pci 0000:00:01.0: Max Payload Size set to  128/ 256 (was  128), Max Read Rq  128
+
+[    0.606036] pci 0000:00:01.0: PME# supported from D3hot D3cold
+
+[    0.612066] pci 0000:00:03.0: [1c36:0001] type 00 class 0x020000 PCIe Root Complex Integrated Endpoint
+
+[    0.621384] pci 0000:00:03.0: BAR 0 [mem 0xfe080000-0xfe09ffff 64bit]
+
+[    0.627812] pci 0000:00:03.0: BAR 2 [mem 0xfe0a0000-0xfe0a0fff 64bit]
+
+[    0.634250] pci 0000:00:03.0: BAR 4 [mem 0xfe0a4000-0xfe0a7fff 64bit]
+
+[    0.640702] pci 0000:00:03.0: Max Payload Size set to  128/ 256 (was  128), Max Read Rq  128
+
+[    0.649148] pci 0000:00:03.0: PME# supported from D3hot D3cold
+
+[    0.655100] pci 0000:00:04.0: [1c36:0011] type 00 class 0x100000 PCIe Root Complex Integrated Endpoint
+
+[    0.664414] pci 0000:00:04.0: BAR 0 [mem 0xfe0c0000-0xfe0dffff 64bit]
+
+[    0.670852] pci 0000:00:04.0: BAR 4 [mem 0xfe0e0000-0xfe0e1fff 64bit]
+
+[    0.677290] pci 0000:00:04.0: Max Payload Size set to  128/ 256 (was  128), Max Read Rq  128
+
+[    0.685738] pci 0000:00:04.0: PME# supported from D3hot D3cold
+
+[    0.691588] pci 0000:00:04.0: VF BAR 0 [mem 0x00000000-0x0001ffff 64bit]
+
+[    0.698276] pci 0000:00:04.0: VF BAR 0 [mem 0x00000000-0x0001ffff 64bit]: contains BAR 0 for 1 VFs
+
+[    0.707378] pci 0000:00:05.0: [1c36:0021] type 00 class 0x088000 PCIe Root Complex Integrated Endpoint
+
+[    0.716690] pci 0000:00:05.0: BAR 0 [mem 0xfe100000-0xfe11ffff 64bit]
+
+[    0.723129] pci 0000:00:05.0: BAR 4 [mem 0xfe120000-0xfe121fff 64bit]
+
+[    0.729577] pci 0000:00:05.0: Max Payload Size set to  128/ 256 (was  128), Max Read Rq  128
+
+[    0.738016] pci 0000:00:05.0: PME# supported from D3hot D3cold
+
+[    0.743878] pci 0000:00:05.0: VF BAR 0 [mem 0x00000000-0x0001ffff 64bit]
+
+[    0.750575] pci 0000:00:05.0: VF BAR 0 [mem 0x00000000-0x0001ffff 64bit]: contains BAR 0 for 1 VFs
+
+[    0.760750] PCI: bus0: Fast back to back transfers disabled
+
+[    0.766322] pci 0000:00:00.0: BAR 0 [mem 0xfe000000-0xfe01ffff 64bit]: assigned
+
+[    0.773631] pci 0000:00:00.0: VF BAR 0 [mem 0xfe020000-0xfe07ffff 64bit]: assigned
+
+[    0.781197] pci 0000:00:01.0: BAR 0 [mem 0xfe080000-0xfe09ffff 64bit]: assigned
+
+[    0.788495] pci 0000:00:03.0: BAR 0 [mem 0xfe0a0000-0xfe0bffff 64bit]: assigned
+
+[    0.795802] pci 0000:00:04.0: BAR 0 [mem 0xfe0c0000-0xfe0dffff 64bit]: assigned
+
+[    0.803110] pci 0000:00:04.0: VF BAR 0 [mem 0xfe0e0000-0xfe0fffff 64bit]: assigned
+
+[    0.810674] pci 0000:00:05.0: BAR 0 [mem 0xfe100000-0xfe11ffff 64bit]: assigned
+
+[    0.817971] pci 0000:00:05.0: VF BAR 0 [mem 0xfe120000-0xfe13ffff 64bit]: assigned
+
+[    0.825536] pci 0000:00:00.0: BAR 4 [mem 0xfe140000-0xfe143fff 64bit]: assigned
+
+[    0.832842] pci 0000:00:01.0: BAR 4 [mem 0xfe144000-0xfe147fff 64bit]: assigned
+
+[    0.840153] pci 0000:00:03.0: BAR 4 [mem 0xfe148000-0xfe14bfff 64bit]: assigned
+
+[    0.847450] pci 0000:00:04.0: BAR 4 [mem 0xfe14c000-0xfe14dfff 64bit]: assigned
+
+[    0.854764] pci 0000:00:05.0: BAR 4 [mem 0xfe14e000-0xfe14ffff 64bit]: assigned
+
+[    0.862073] pci 0000:00:00.0: BAR 2 [mem 0xfe150000-0xfe150fff 64bit]: assigned
+
+[    0.869379] pci 0000:00:01.0: BAR 2 [mem 0xfe151000-0xfe151fff 64bit]: assigned
+
+[    0.876676] pci 0000:00:03.0: BAR 2 [mem 0xfe152000-0xfe152fff 64bit]: assigned
+
+[    0.884305] PCIe 1: Link up. speed gen2 negotiated width 1
+
+[    0.889793] al-pcie fd800000.pcie-external0: link up: speed Gen 2 width x1
+
+[    0.896656] Configuring PCIE for IOCC
+
+[    0.900318] PCIE_1: snoop mode enable
+
+[    0.905014] msi override pcie-external0
+
+[    0.908909] al-pcie fd800000.pcie-external0: PCI host bridge to bus 0001:00
+
+[    0.915858] pci_bus 0001:00: root bus resource [io  0x10000-0x1ffff]
+
+[    0.922208] pci_bus 0001:00: root bus resource [mem 0xe0010000-0xe7ffffff]
+
+[    0.929077] pci_bus 0001:00: root bus resource [bus 00-ff]
+
+[    0.934589] pci 0001:00:00.0: [1c36:0031] type 01 class 0x060400 PCIe Root Port
+
+[    0.941914] pci 0001:00:00.0: BAR 0 [mem 0x00000000-0x00000fff]
+
+[    0.947823] pci 0001:00:00.0: BAR 1 [mem 0x00000000-0x00000fff pref]
+
+[    0.954173] pci 0001:00:00.0: PCI bridge to [bus 00]
+
+[    0.959142] pci 0001:00:00.0:   bridge window [io  0x0000-0x0fff]
+
+[    0.965224] pci 0001:00:00.0:   bridge window [mem 0x00000000-0x000fffff]
+
+[    0.972010] pci 0001:00:00.0:   bridge window [mem 0x00000000-0x000fffff pref]
+
+[    0.979247] pci 0001:00:00.0: Max Payload Size set to  256/ 256 (was  128), Max Read Rq  256
+
+[    0.987668] pci 0001:00:00.0: [Firmware Bug]: disabling VPD access (can't determine size of non-standard VPD format)
+
+[    0.998173] pci 0001:00:00.0: quirk_blacklist_vpd+0x0/0x1c took 10259 usecs
+
+[    1.005177] pci 0001:00:00.0: supports D1
+
+[    1.009188] pci 0001:00:00.0: PME# supported from D0 D1 D3hot
+
+[    1.015744] PCI: bus0: Fast back to back transfers disabled
+
+[    1.021317] pci 0001:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+
+[    1.029432] pci 0001:01:00.0: [1b21:1182] type 01 class 0x060400 PCIe Switch Upstream Port
+
+[    1.037705] pci 0001:01:00.0: PCI bridge to [bus 00]
+
+[    1.042680] pci 0001:01:00.0:   bridge window [mem 0x00000000-0xe00fffff]
+
+[    1.049472] pci 0001:01:00.0:   bridge window [mem 0x1c200000-0xffffffff 64bit pref]
+
+[    1.057214] pci 0001:01:00.0: enabling Extended Tags
+
+[    1.062209] pci 0001:01:00.0: Max Payload Size set to  256/ 256 (was  128), Max Read Rq  256
+
+[    1.070698] pci 0001:01:00.0: PME# supported from D0 D3hot D3cold
+
+[    1.077015] PCI: bus1: Fast back to back transfers disabled
+
+[    1.082587] pci 0001:01:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+
+[    1.090777] pci 0001:02:03.0: [1b21:1182] type 01 class 0x060400 PCIe Switch Downstream Port
+
+[    1.099233] pci 0001:02:03.0: PCI bridge to [bus 00]
+
+[    1.104195] pci 0001:02:03.0:   bridge window [io  0x0000-0x0fff]
+
+[    1.110285] pci 0001:02:03.0:   bridge window [mem 0x00000000-0x000fffff]
+
+[    1.117069] pci 0001:02:03.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
+
+[    1.124823] pci 0001:02:03.0: enabling Extended Tags
+
+[    1.129816] pci 0001:02:03.0: Max Payload Size set to  256/ 256 (was  128), Max Read Rq  256
+
+[    1.138294] pci 0001:02:03.0: PME# supported from D0 D3hot D3cold
+
+[    1.144704] pci 0001:02:07.0: [1b21:1182] type 01 class 0x060400 PCIe Switch Downstream Port
+
+[    1.153160] pci 0001:02:07.0: PCI bridge to [bus 00]
+
+[    1.158122] pci 0001:02:07.0:   bridge window [io  0x0000-0x0fff]
+
+[    1.164213] pci 0001:02:07.0:   bridge window [mem 0x00000000-0x000fffff]
+
+[    1.171005] pci 0001:02:07.0:   bridge window [mem 0x00000000-0x000fffff 64bit pref]
+
+[    1.178749] pci 0001:02:07.0: enabling Extended Tags
+
+[    1.183748] pci 0001:02:07.0: Max Payload Size set to  256/ 256 (was  128), Max Read Rq  256
+
+[    1.192235] pci 0001:02:07.0: PME# supported from D0 D3hot D3cold
+
+[    1.199035] PCI: bus2: Fast back to back transfers disabled
+
+[    1.204598] pci 0001:02:03.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+
+[    1.212598] pci 0001:02:07.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+
+[    1.220731] pci 0001:03:00.0: [168c:0046] type 00 class 0x028000 PCIe Endpoint
+
+[    1.227996] pci 0001:03:00.0: BAR 0 [mem 0x00000000-0x001fffff 64bit]
+
+[    1.234494] pci 0001:03:00.0: Max Payload Size set to  256/ 256 (was  128), Max Read Rq  256
+
+[    1.243005] pci 0001:03:00.0: PME# supported from D0 D3hot D3cold
+
+[    1.249355] PCI: bus3: Fast back to back transfers disabled
+
+[    1.254916] pci_bus 0001:03: busn_res: [bus 03-ff] end is updated to 03
+
+[    1.261664] pci 0001:04:00.0: [168c:0046] type 00 class 0x028000 PCIe Endpoint
+
+[    1.268939] pci 0001:04:00.0: BAR 0 [mem 0x00000000-0x001fffff 64bit]
+
+[    1.275426] pci 0001:04:00.0: Max Payload Size set to  256/ 256 (was  128), Max Read Rq  256
+
+[    1.283936] pci 0001:04:00.0: PME# supported from D0 D3hot D3cold
+
+[    1.290287] PCI: bus4: Fast back to back transfers disabled
+
+[    1.295849] pci_bus 0001:04: busn_res: [bus 04-ff] end is updated to 04
+
+[    1.302468] pci_bus 0001:02: busn_res: [bus 02-ff] end is updated to 04
+
+[    1.309080] pci_bus 0001:01: busn_res: [bus 01-ff] end is updated to 04
+
+[    1.315694] pci 0001:00:00.0: bridge window [mem 0xe0200000-0xe05fffff]: assigned
+
+[    1.323171] pci 0001:00:00.0: BAR 0 [mem 0xe0010000-0xe0010fff]: assigned
+
+[    1.329956] pci 0001:00:00.0: BAR 1 [mem 0xe0011000-0xe0011fff pref]: assigned
+
+[    1.337168] pci 0001:01:00.0: bridge window [mem 0xe0200000-0xe05fffff]: assigned
+
+[    1.344648] pci 0001:02:03.0: bridge window [mem 0xe0200000-0xe03fffff]: assigned
+
+[    1.352124] pci 0001:02:07.0: bridge window [mem 0xe0400000-0xe05fffff]: assigned
+
+[    1.359606] pci 0001:03:00.0: BAR 0 [mem 0xe0200000-0xe03fffff 64bit]: assigned
+
+[    1.366911] pci 0001:02:03.0: PCI bridge to [bus 03]
+
+[    1.371877] pci 0001:02:03.0:   bridge window [mem 0xe0200000-0xe03fffff]
+
+[    1.378656] pci 0001:04:00.0: BAR 0 [mem 0xe0400000-0xe05fffff 64bit]: assigned
+
+[    1.385969] pci 0001:02:07.0: PCI bridge to [bus 04]
+
+[    1.390935] pci 0001:02:07.0:   bridge window [mem 0xe0400000-0xe05fffff]
+
+[    1.397713] pci 0001:01:00.0: PCI bridge to [bus 02-04]
+
+[    1.402938] pci 0001:01:00.0:   bridge window [mem 0xe0200000-0xe05fffff]
+
+[    1.409723] pci 0001:00:00.0: PCI bridge to [bus 01-04]
+
+[    1.414940] pci 0001:00:00.0:   bridge window [mem 0xe0200000-0xe05fffff]
+
+[    1.421733] pci 0001:00:00.0: Max Payload Size set to  256/ 256 (was  256), Max Read Rq  256
+
+[    1.430170] pci 0001:01:00.0: Max Payload Size set to  256/ 256 (was  256), Max Read Rq  256
+
+[    1.438600] pci 0001:02:03.0: Max Payload Size set to  256/ 256 (was  256), Max Read Rq  256
+
+[    1.447041] pci 0001:03:00.0: Max Payload Size set to  256/ 256 (was  256), Max Read Rq  256
+
+[    1.455480] pci 0001:02:07.0: Max Payload Size set to  256/ 256 (was  256), Max Read Rq  256
+
+[    1.463921] pci 0001:04:00.0: Max Payload Size set to  256/ 256 (was  256), Max Read Rq  256
+
+[    1.472928] PCIe 2: Link up. speed gen2 negotiated width 1
+
+[    1.478403] al-pcie fd820000.pcie-external1: link up: speed Gen 2 width x1
+
+[    1.485274] Configuring PCIE for IOCC
+
+[    1.488934] PCIE_2: snoop mode enable
+
+[    1.493618] msi override pcie-external1
+
+[    1.497502] al-pcie fd820000.pcie-external1: PCI host bridge to bus 0002:00
+
+[    1.504459] pci_bus 0002:00: root bus resource [io  0x20000-0x2ffff]
+
+[    1.510810] pci_bus 0002:00: root bus resource [mem 0xe8010000-0xefffffff]
+
+[    1.517671] pci_bus 0002:00: root bus resource [bus 00-ff]
+
+[    1.523171] pci 0002:00:00.0: [1c36:0031] type 01 class 0x060400 PCIe Root Port
+
+[    1.530489] pci 0002:00:00.0: BAR 0 [mem 0x00000000-0x00000fff]
+
+[    1.536397] pci 0002:00:00.0: BAR 1 [mem 0x00000000-0x00000fff pref]
+
+[    1.542751] pci 0002:00:00.0: PCI bridge to [bus 00]
+
+[    1.547710] pci 0002:00:00.0:   bridge window [io  0x0000-0x0fff]
+
+[    1.553800] pci 0002:00:00.0:   bridge window [mem 0x00000000-0x000fffff]
+
+[    1.560586] pci 0002:00:00.0:   bridge window [mem 0x00000000-0x000fffff pref]
+
+[    1.567815] pci 0002:00:00.0: Max Payload Size set to  256/ 256 (was  128), Max Read Rq  256
+
+[    1.576244] pci 0002:00:00.0: [Firmware Bug]: disabling VPD access (can't determine size of non-standard VPD format)
+
+[    1.586749] pci 0002:00:00.0: quirk_blacklist_vpd+0x0/0x1c took 10258 usecs
+
+[    1.593748] pci 0002:00:00.0: supports D1
+
+[    1.597749] pci 0002:00:00.0: PME# supported from D0 D1 D3hot
+
+[    1.604268] PCI: bus0: Fast back to back transfers disabled
+
+[    1.609840] pci 0002:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+
+[    1.617924] pci 0002:01:00.0: [1b21:1142] type 00 class 0x0c0330 PCIe Legacy Endpoint
+
+[    1.625799] pci 0002:01:00.0: BAR 0 [mem 0xe8000000-0xe8007fff 64bit]
+
+[    1.632277] pci 0002:01:00.0: Max Payload Size set to  256/ 512 (was  128), Max Read Rq  256
+
+[    1.640774] pci 0002:01:00.0: PME# supported from D3cold
+
+[    1.646241] PCI: bus1: Fast back to back transfers disabled
+
+[    1.651814] pci_bus 0002:01: busn_res: [bus 01-ff] end is updated to 01
+
+[    1.658423] pci 0002:00:00.0: bridge window [mem 0xe8100000-0xe81fffff]: assigned
+
+[    1.665905] pci 0002:00:00.0: BAR 0 [mem 0xe8010000-0xe8010fff]: assigned
+
+[    1.672691] pci 0002:00:00.0: BAR 1 [mem 0xe8011000-0xe8011fff pref]: assigned
+
+[    1.679912] pci 0002:01:00.0: BAR 0 [mem 0xe8100000-0xe8107fff 64bit]: assigned
+
+[    1.687216] pci 0002:00:00.0: PCI bridge to [bus 01]
+
+[    1.692183] pci 0002:00:00.0:   bridge window [mem 0xe8100000-0xe81fffff]
+
+[    1.698976] pci 0002:00:00.0: Max Payload Size set to  256/ 256 (was  256), Max Read Rq  256
+
+[    1.707407] pci 0002:01:00.0: Max Payload Size set to  256/ 512 (was  256), Max Read Rq  256
+
+[    1.715894] pci 0002:01:00.0: enabling device (0140 -> 0142)
+
+[    1.721819] PCIe 3: Link up. speed gen2 negotiated width 1
+
+[    1.727296] al-pcie fd840000.pcie-external2: link up: speed Gen 2 width x1
+
+[    1.734170] Configuring PCIE for IOCC
+
+[    1.737822] PCIE_3: snoop mode enable
+
+[    1.742523] msi override pcie-external2
+
+[    1.746400] al-pcie fd840000.pcie-external2: PCI host bridge to bus 0003:00
+
+[    1.753359] pci_bus 0003:00: root bus resource [io  0x30000-0x3ffff]
+
+[    1.759709] pci_bus 0003:00: root bus resource [mem 0xf0010000-0xf7ffffff]
+
+[    1.766570] pci_bus 0003:00: root bus resource [bus 00-ff]
+
+[    1.772081] pci 0003:00:00.0: [1c36:0031] type 01 class 0x060400 PCIe Root Port
+
+[    1.779404] pci 0003:00:00.0: BAR 0 [mem 0x00000000-0x00000fff]
+
+[    1.785313] pci 0003:00:00.0: BAR 1 [mem 0x00000000-0x00000fff pref]
+
+[    1.791665] pci 0003:00:00.0: PCI bridge to [bus 00]
+
+[    1.796624] pci 0003:00:00.0:   bridge window [io  0x0000-0x0fff]
+
+[    1.802715] pci 0003:00:00.0:   bridge window [mem 0x00000000-0x000fffff]
+
+[    1.809500] pci 0003:00:00.0:   bridge window [mem 0x00000000-0x000fffff pref]
+
+[    1.816730] pci 0003:00:00.0: Max Payload Size set to  256/ 256 (was  128), Max Read Rq  256
+
+[    1.825160] pci 0003:00:00.0: [Firmware Bug]: disabling VPD access (can't determine size of non-standard VPD format)
+
+[    1.835664] pci 0003:00:00.0: quirk_blacklist_vpd+0x0/0x1c took 10258 usecs
+
+[    1.842664] pci 0003:00:00.0: supports D1
+
+[    1.846665] pci 0003:00:00.0: PME# supported from D0 D1 D3hot
+
+[    1.853197] PCI: bus0: Fast back to back transfers disabled
+
+[    1.858759] pci 0003:00:00.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+
+[    1.866859] pci 0003:01:00.0: [1ae9:0310] type 00 class 0x028000 PCIe Endpoint
+
+[    1.874126] pci 0003:01:00.0: BAR 0 [mem 0xf0000000-0xf01fffff 64bit]
+
+[    1.880605] pci 0003:01:00.0: Max Payload Size set to  128/ 128 (was  128), Max Read Rq  128
+
+[    1.889267] PCI: bus1: Fast back to back transfers disabled
+
+[    1.894829] pci_bus 0003:01: busn_res: [bus 01-ff] end is updated to 01
+
+[    1.901453] pci 0003:00:00.0: bridge window [mem 0xf0200000-0xf03fffff]: assigned
+
+[    1.908930] pci 0003:00:00.0: BAR 0 [mem 0xf0010000-0xf0010fff]: assigned
+
+[    1.915707] pci 0003:00:00.0: BAR 1 [mem 0xf0011000-0xf0011fff pref]: assigned
+
+[    1.922928] pci 0003:01:00.0: BAR 0 [mem 0xf0200000-0xf03fffff 64bit]: assigned
+
+[    1.930239] pci 0003:00:00.0: PCI bridge to [bus 01]
+
+[    1.935196] pci 0003:00:00.0:   bridge window [mem 0xf0200000-0xf03fffff]
+
+[    1.941987] pci 0003:00:00.0: Max Payload Size set to  256/ 256 (was  256), Max Read Rq  256
+
+[    1.950425] pci 0003:01:00.0: Max Payload Size set to  128/ 128 (was  128), Max Read Rq  128
+
+[    1.959689] workingset: timestamp_bits=14 max_order=18 bucket_order=4
+
+[    1.967024] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+
+[    1.972859] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+
+[    1.983961] cryptd: max_cpu_qlen set to 1000
+
+[    2.043833] al-pcie fd800000.pcie-external0: Failed to create device link (0x180) with supplier soc for /soc/pcie-external0/pcie-legacy-intc
+
+[    2.056434] al-pcie fd820000.pcie-external1: Failed to create device link (0x180) with supplier soc for /soc/pcie-external1/pcie-legacy-intc
+
+[    2.069039] al-pcie fd840000.pcie-external2: Failed to create device link (0x180) with supplier soc for /soc/pcie-external2/pcie-legacy-intc
+
+[    2.081944] gpio gpiochip1: Static allocation of GPIO base is deprecated, use dynamic allocation.
+
+[    2.090967] pl061_gpio fd887000.gpio0: PL061 GPIO chip registered
+
+[    2.097192] gpio gpiochip2: Static allocation of GPIO base is deprecated, use dynamic allocation.
+
+[    2.106214] pl061_gpio fd888000.gpio1: PL061 GPIO chip registered
+
+[    2.112425] gpio gpiochip3: Static allocation of GPIO base is deprecated, use dynamic allocation.
+
+[    2.121437] pl061_gpio fd889000.gpio2: PL061 GPIO chip registered
+
+[    2.127650] gpio gpiochip4: Static allocation of GPIO base is deprecated, use dynamic allocation.
+
+[    2.136658] pl061_gpio fd88a000.gpio3: PL061 GPIO chip registered
+
+[    2.142890] gpio gpiochip5: Static allocation of GPIO base is deprecated, use dynamic allocation.
+
+[    2.151916] pl061_gpio fd88b000.gpio4: PL061 GPIO chip registered
+
+[    2.158203] gpio gpiochip6: Static allocation of GPIO base is deprecated, use dynamic allocation.
+
+[    2.167235] pl061_gpio fd897000.gpio5: PL061 GPIO chip registered
+
+[    2.173450] irq: no irq domain found for pcie-legacy-intc !
+
+[    2.179189] pcieport 0001:00:00.0: PME: Signaling with IRQ 169
+
+[    2.185181] pcieport 0001:00:00.0: AER: enabled with IRQ 169
+
+[    2.191041] irq: no irq domain found for pcie-legacy-intc !
+
+[    2.196606] pcieport 0001:01:00.0: enabling device (0140 -> 0142)
+
+[    2.202825] irq: no irq domain found for pcie-legacy-intc !
+
+[    2.208393] pcieport 0001:02:03.0: enabling device (0140 -> 0142)
+
+[    2.214765] irq: no irq domain found for pcie-legacy-intc !
+
+[    2.220343] pcieport 0001:02:07.0: enabling device (0140 -> 0142)
+
+[    2.226696] irq: no irq domain found for pcie-legacy-intc !
+
+[    2.232417] pcieport 0002:00:00.0: PME: Signaling with IRQ 172
+
+[    2.238396] pcieport 0002:00:00.0: AER: enabled with IRQ 172
+
+[    2.244235] irq: no irq domain found for pcie-legacy-intc !
+
+[    2.249957] pcieport 0003:00:00.0: PME: Signaling with IRQ 173
+
+[    2.255959] pcieport 0003:00:00.0: AER: enabled with IRQ 173
+
+[    2.262068] al_dma: Annapurna Labs DMA Driver 0.01
+
+[    2.266890] al_dma 0000:00:05.0: of_irq_parse_pci: failed with rc=-22
+
+[    2.379899] al_dma 0000:00:05.0: enabling device (0000 -> 0002)
+
+[    2.488900] pci 0000:00:05.1: [1c36:8021] type 00 class 0x088000 PCIe Endpoint
+
+[    2.496118] pci 0000:00:05.1: Max Payload Size set to  128/ 128 (was  128), Max Read Rq  128
+
+[    2.609893] al_dma 0000:00:05.1: enabling device (0400 -> 0402)
+
+[    2.616599] Serial: 8250/16550 driver, 4 ports, IRQ sharing enabled
+
+[    2.623908] printk: legacy console [ttyS0] disabled
+
+[    2.629015] fd883000.uart0: ttyS0 at MMIO 0xfd883000 (irq = 178, base_baud = 23437500) is a 16550A
+
+[    2.637973] printk: legacy console [ttyS0] enabled
+
+[    2.637973] printk: legacy console [ttyS0] enabled
+
+[    2.647544] printk: legacy bootconsole [ns16550a0] disabled
+
+[    2.647544] printk: legacy bootconsole [ns16550a0] disabled
+
+[    2.659267] fd884000.uart1: ttyS1 at MMIO 0xfd884000 (irq = 179, base_baud = 23437500) is a 16550A
+
+[    2.671691] loop: module loaded
+
+[    2.674991] al_nand: al_nand_probe: AnnapurnaLabs nand driver
+
+[    2.680882] annapurna-labs,al-nand fa100000.nand-flash: device_properties: num_col_cyc 2 num_row_cyc 3 pageSize 0
+
+[    2.691133] annapurna-labs,al-nand fa100000.nand-flash: dev_ext_props: pageSize 2048 blockSize 131072 wordSize 1 eccIsEnabled 1
+
+[    2.702593] annapurna-labs,al-nand fa100000.nand-flash: ecc_config: algorithm 1 num_corr_bits 0 messageSize 0 spareAreaOffset 2052
+
+[    2.714996] nand: device found, Manufacturer ID: 0x01, Chip ID: 0xac
+
+[    2.721352] nand: AMD/Spansion S34MS04G2
+
+[    2.725267] nand: 512 MiB, SLC, erase size: 128 KiB, page size: 2048, OOB size: 128
+
+[    2.732936] annapurna-labs,al-nand fa100000.nand-flash: nand_onfi_config_set: ONFI sdr_timing_modes 0x3
+
+[    2.742322] annapurna-labs,al-nand fa100000.nand-flash: nand_onfi_config_set: chosen manual timing mode index 1
+
+[    2.752396] annapurna-labs,al-nand fa100000.nand-flash: nand_onfi_config_set: timing mode 6
+
+[    2.760739] annapurna-labs,al-nand fa100000.nand-flash: nand_ecc_config: hw_ecc_enabled 1 oob_size 128 ecc_loc 4
+
+[    2.770908] Scanning device for bad blocks
+
+[    3.388408] Bad eraseblock 4078 at 0x00001fdc0000
+
+[    3.393166] Bad eraseblock 4079 at 0x00001fde0000
+
+[    3.397913] Bad eraseblock 4080 at 0x00001fe00000
+
+[    3.404884] annapurna-labs,al-nand fa100000.nand-flash: oobavail 2
+
+[    3.411096] 7 fixed-partitions partitions found on MTD device al-nand
+
+[    3.417529] Creating 7 MTD partitions on "al-nand":
+
+[    3.422407] 0x000000000000-0x0000001e0000 : "u-boot"
+
+[    3.427625] 0x0000001e0000-0x000000300000 : "u-boot-env"
+
+[    3.433179] 0x000000300000-0x000000440000 : "ART"
+
+[    3.438205] 0x000000440000-0x000000580000 : "ART.bak"
+
+[    3.443492] 0x000000580000-0x000002580000 : "kernel"
+
+[    3.448846] 0x000002580000-0x00001f000000 : "ubi"
+
+[    3.456073] 0x00001f000000-0x000020000000 : "recovery"
+
+[    3.478216] switch0: Atheros AR8337 rev. 2 switch registered on mdio-al-gpio-0
+
+[    4.050606] al_eth 0000:00:00.0: of_irq_parse_pci: failed with rc=-22
+
+[    4.057038] al_eth_drv: AnnapurnaLabs unified 1GbE and 10GbE Ethernet Driver al_eth v0.2 (Feb 18, 2013)
+
+[    4.066482] al_eth 0000:00:00.0: Board info: board type 0 ext phy exists No, ext phy addr 0, mdio freq 2500 Khz, SFP connected Yes, media 5
+
+[    4.083051] al_eth_drv: configured MAC to RGMII mode:
+
+[    4.088093] al_eth_drv: eth [al_eth_0]: set link speed to 1000Mbps. full duplex.
+
+[    4.095933] al_eth 0000:00:00.0: MDIO child node missing
+
+[    4.101254] al_eth 0000:00:00.0 eth0: AnnapurnaLabs unified 1Gbe/10Gbe found at mem fe000000, mac addr 08:02:8e:xx:xx:xx
+
+[    4.112162] al_eth 0000:00:01.0: of_irq_parse_pci: failed with rc=-22
+
+[    4.118638] al_eth 0000:00:01.0: Board info: board type 0 ext phy exists No, ext phy addr 0, mdio freq 2500 Khz, SFP connected No, media 1
+
+[    4.135120] al_eth_drv: configured MAC to RGMII mode:
+
+[    4.140169] al_eth_drv: eth [al_eth_1]: set link speed to 1000Mbps. full duplex.
+
+[    4.149893] switch1: Atheros AR8337 rev. 2 switch registered on mdio-al-eth-0
+
+[    4.646585] al_eth 0000:00:01.0 eth1: AnnapurnaLabs unified 1Gbe/10Gbe found at mem fe080000, mac addr 08:02:8e:xx:xx:xx
+
+[    4.657512] al_eth 0000:00:03.0: of_irq_parse_pci: failed with rc=-22
+
+[    4.663999] al_eth 0000:00:03.0: Board info: board type 0 ext phy exists No, ext phy addr 0, mdio freq 2500 Khz, SFP connected No, media 1
+
+[    4.680479] al_eth_drv: configured MAC to RGMII mode:
+
+[    4.685521] al_eth_drv: eth [al_eth_2]: set link speed to 1000Mbps. full duplex.
+
+[    4.693331] al_eth 0000:00:03.0: MDIO child node missing
+
+[    4.698634] al_eth 0000:00:03.0 eth2: AnnapurnaLabs unified 1Gbe/10Gbe found at mem fe0a0000, mac addr be:6e:7b:xx:xx:xx
+
+[    4.709609] i2c_dev: i2c /dev entries driver
+
+[    4.735641] al_thermal_probe: Thermal Sensor Loaded at: 0x(ptrval).
+
+[    4.742154] sp805-wdt fd88c000.wdt0: registration successful
+
+[    4.748203] sdhci: Secure Digital Host Controller Interface driver
+
+[    4.754382] sdhci: Copyright(c) Pierre Ossman
+
+[    4.758729] sdhci-pltfm: SDHCI platform and OF driver helper
+
+[    4.765022] NET: Registered PF_INET6 protocol family
+
+[    4.770846] Segment Routing with IPv6
+
+[    4.774521] In-situ OAM (IOAM) with IPv6
+
+[    4.778479] NET: Registered PF_PACKET protocol family
+
+[    4.783894] 8021q: 802.1Q VLAN Support v1.8
+
+[    4.788125] Registering SWP/SWPB emulation handler
+
+[    4.802929] ubi0: default fastmap pool size: 180
+
+[    4.807545] ubi0: default fastmap WL pool size: 90
+
+[    4.812343] ubi0: attaching mtd5
+
+[    4.899780] UBI: EOF marker found, PEBs from 211 will be erased
+
+[    4.908333] ubi0: scanning is finished
+
+[    4.972731] ubi0: volume 1 ("rootfs_data") re-sized from 9 to 3373 LEBs
+
+[    4.979751] ubi0: attached mtd5 (name "ubi", size 458 MiB)
+
+[    4.985230] ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+
+[    4.992106] ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+
+[    4.998891] ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+
+[    5.005838] ubi0: good PEBs: 3668, bad PEBs: 0, corrupted PEBs: 0
+
+[    5.011936] ubi0: user volume: 2, internal volumes: 1, max. volumes count: 128
+
+[    5.019152] ubi0: max/mean erase counter: 1/0, WL threshold: 4096, image sequence number: 1792283045
+
+[    5.028266] ubi0: available PEBs: 0, total reserved PEBs: 3668, PEBs reserved for bad PEB handling: 80
+
+[    5.037609] ubi0: background thread "ubi_bgt0d" started, PID 63
+
+[    5.038151] block ubiblock0_0: created from ubi0:0(rootfs)
+
+[    5.049025] ubiblock: device ubiblock0_0 (rootfs) set to be root filesystem
+
+[    5.056164] clk: Disabling unused clocks
+
+[    5.060229] check access for rdinit=/init failed: -2, ignoring
+
+[    5.087695] VFS: Mounted root (squashfs filesystem) readonly on device 254:0.
+
+[    5.095864] Freeing unused kernel image (initmem) memory: 1024K
+
+[    5.103157] Run /sbin/init as init process
+
+[    5.476002] init: Console is alive
+
+[    5.479544] init: - watchdog -
+
+[    5.578893] random: crng init done
+
+[    7.020193] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+
+[    7.070401] raid6: skipped pq benchmark and selected neonx8
+
+[    7.075978] raid6: using neon recovery algorithm
+
+[    7.081356] xor: measuring software checksum speed
+
+[    7.087664]    arm4regs        :  2161 MB/sec
+
+[    7.093296]    8regs           :  2597 MB/sec
+
+[    7.098921]    32regs          :  2581 MB/sec
+
+[    7.103964]    neon            :  4761 MB/sec
+
+[    7.108317] xor: using function: neon (4761 MB/sec)
+
+[    7.227364] Btrfs loaded, zoned=no, fsverity=no
+
+[    7.325027] SGI XFS with ACLs, security attributes, no debug enabled
+
+[    7.333404] gpio_button_hotplug: loading out-of-tree module taints kernel.
+
+[    7.346156] SCSI subsystem initialized
+
+[    7.367605] irq: no irq domain found for pcie-legacy-intc !
+
+[    7.373227] xhci_hcd 0002:01:00.0: xHCI Host Controller
+
+[    7.378461] xhci_hcd 0002:01:00.0: new USB bus registered, assigned bus number 1
+
+[    7.446424] xhci_hcd 0002:01:00.0: hcc params 0x0200e080 hci version 0x100 quirks 0x0000000010800010
+
+[    7.456177] xhci_hcd 0002:01:00.0: xHCI Host Controller
+
+[    7.461428] xhci_hcd 0002:01:00.0: new USB bus registered, assigned bus number 2
+
+[    7.468814] xhci_hcd 0002:01:00.0: Host supports USB 3.0 SuperSpeed
+
+[    7.475568] hub 1-0:1.0: USB hub found
+
+[    7.479357] hub 1-0:1.0: 2 ports detected
+
+[    7.483736] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+
+[    7.492184] hub 2-0:1.0: USB hub found
+
+[    7.495955] hub 2-0:1.0: 2 ports detected
+
+[    7.505212] usbcore: registered new interface driver usb-storage
+
+[    7.512271] usbcore: registered new interface driver uas
+
+[    7.517708] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+
+[    7.532342] init: - preinit -
+
+Cannot parse config file '/etc/fw_env.config': No such file or directory
+
+Failed to find NVMEM device
+
+[   10.084492] al_eth 0000:00:01.0 eth1: al_eth_open
+
+[   10.089218] al_eth 0000:00:01.0 eth1: al_eth_open: no phy, use_lm 0
+
+[   10.095477] al_eth 0000:00:01.0 eth1: al_eth_up
+
+[   10.100072] al_eth_drv: configured MAC to RGMII mode:
+
+[   10.105115] al_eth_drv: eth [al_eth_1]: set link speed to 1000Mbps. full duplex.
+
+[   10.113293] al_eth 0000:00:01.0 eth1: using MSI-X per Queue interrupt mode
+
+Press the [f] key and hit [enter] to enter failsafe mode
+
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+
+[   14.371769] mount_root: loading kmods from internal overlay
+
+[   14.396533] kmodloader: loading kernel modules from //etc/modules-boot.d/*
+
+[   14.406695] kmodloader: done loading kernel modules from //etc/modules-boot.d/*
+
+[   14.464633] block: attempting to load /tmp/overlay/upper/etc/config/fstab
+
+[   14.471508] block: unable to load configuration (fstab: Entry not found)
+
+[   14.478242] block: attempting to load /tmp/overlay/etc/config/fstab
+
+[   14.484573] block: unable to load configuration (fstab: Entry not found)
+
+[   14.491318] block: attempting to load /etc/config/fstab
+
+[   14.498720] block: unable to load configuration (fstab: Entry not found)
+
+[   14.505469] block: no usable configuration
+
+[   14.522229] UBIFS (ubi0:1): default file-system created
+
+[   14.527901] UBIFS (ubi0:1): Mounting in unauthenticated mode
+
+[   14.533743] UBIFS (ubi0:1): background thread "ubifs_bgt0_1" started, PID 186
+
+[   14.579445] UBIFS (ubi0:1): UBIFS: mounted UBI device 0, volume 1, name "rootfs_data"
+
+[   14.587263] UBIFS (ubi0:1): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+
+[   14.597168] UBIFS (ubi0:1): FS size: 426385408 bytes (406 MiB, 3358 LEBs), max 3373 LEBs, journal size 21331968 bytes (20 MiB, 168 LEBs)
+
+[   14.609411] UBIFS (ubi0:1): reserved for root: 4952683 bytes (4836 KiB)
+
+[   14.616013] UBIFS (ubi0:1): media format: w5/r0 (latest is w5/r0), UUID D066D198-7209-400A-B2B3-CC42B6490EF3, small LPT model
+
+[   14.627874] block: attempting to load /tmp/ubifs_cfg/upper/etc/config/fstab
+
+[   14.634922] block: unable to load configuration (fstab: Entry not found)
+
+[   14.641671] block: attempting to load /tmp/ubifs_cfg/etc/config/fstab
+
+[   14.648173] block: unable to load configuration (fstab: Entry not found)
+
+[   14.654919] block: attempting to load /etc/config/fstab
+
+[   14.660209] block: unable to load configuration (fstab: Entry not found)
+
+[   14.666936] block: no usable configuration
+
+[   14.673829] UBIFS (ubi0:1): un-mount UBI device 0
+
+[   14.678572] UBIFS (ubi0:1): background thread "ubifs_bgt0_1" stops
+
+[   14.687390] UBIFS (ubi0:1): Mounting in unauthenticated mode
+
+[   14.697254] UBIFS (ubi0:1): background thread "ubifs_bgt0_1" started, PID 187
+
+[   14.745362] UBIFS (ubi0:1): UBIFS: mounted UBI device 0, volume 1, name "rootfs_data"
+
+[   14.753194] UBIFS (ubi0:1): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+
+[   14.763100] UBIFS (ubi0:1): FS size: 426385408 bytes (406 MiB, 3358 LEBs), max 3373 LEBs, journal size 21331968 bytes (20 MiB, 168 LEBs)
+
+[   14.775342] UBIFS (ubi0:1): reserved for root: 4952683 bytes (4836 KiB)
+
+[   14.781953] UBIFS (ubi0:1): media format: w5/r0 (latest is w5/r0), UUID D066D198-7209-400A-B2B3-CC42B6490EF3, small LPT model
+
+[   14.807250] block: attempting to load /tmp/overlay/upper/etc/config/fstab
+
+[   14.814118] block: unable to load configuration (fstab: Entry not found)
+
+[   14.820863] block: attempting to load /tmp/overlay/etc/config/fstab
+
+[   14.827189] block: unable to load configuration (fstab: Entry not found)
+
+[   14.833932] block: attempting to load /etc/config/fstab
+
+[   14.839221] block: unable to load configuration (fstab: Entry not found)
+
+[   14.845949] block: no usable configuration
+
+[   14.851493] block: attempting to load /tmp/ubifs_cfg/upper/etc/config/fstab
+
+[   14.858508] block: unable to load configuration (fstab: Entry not found)
+
+[   14.865252] block: attempting to load /tmp/ubifs_cfg/etc/config/fstab
+
+[   14.871755] block: unable to load configuration (fstab: Entry not found)
+
+[   14.878485] block: attempting to load /etc/config/fstab
+
+[   14.883774] block: unable to load configuration (fstab: Entry not found)
+
+[   14.890512] block: no usable configuration
+
+[   14.895960] mount_root: overlay filesystem has not been fully initialized yet
+
+[   14.903304] mount_root: switching to ubifs overlay
+
+[   14.915707] urandom-seed: Seed file not found (/etc/urandom.seed)
+
+- generating board file -
+
+[   15.144717] al_eth 0000:00:01.0 eth1: al_eth_down
+
+[   15.212017] procd: - early -
+
+[   15.214964] procd: - watchdog -
+
+[   15.736760] procd: - watchdog -
+
+[   15.779038] procd: - ubus -
+
+[   15.937160] procd: - init -
+
+Please press Enter to activate this console.
+
+[   16.538134] kmodloader: loading kernel modules from /etc/modules.d/*
+
+[   16.570521] urngd: v1.0.2 started.
+
+[   16.571286] tun: Universal TUN/TAP device driver, 1.6
+
+[   16.601232] GACT probability on
+
+[   16.604869] Mirror/redirect action on
+
+[   16.613701] u32 classifier
+
+[   16.616409]     input device check on
+
+[   16.620093]     Actions configured
+
+[   16.629214] ntfs3: Enabled Linux POSIX ACLs support
+
+[   16.636941] fuse: init (API version 7.45)
+
+[   16.658482] Loading modules backported from Linux version v7.2-0-g8d3ae59288f1
+
+[   16.665702] Backport generated by backports.git v5.15.58-1-198-g2580fa90cb79
+
+[   16.694696] wireguard: WireGuard 1.0.0 loaded. See www.wireguard.com for information.
+
+[   16.702529] wireguard: Copyright (C) 2015-2019 Jason A. Donenfeld <Jason@zx2c4.com>. All Rights Reserved.
+
+[   16.720472] xt_time: kernel timezone is -0000
+
+[   16.827431] PPP generic driver version 2.4.2
+
+[   16.832213] PPP MPPE Compression module registered
+
+[   16.837419] NET: Registered PF_PPPOX protocol family
+
+[   16.847750] irq: no irq domain found for pcie-legacy-intc !
+
+[   16.853338] wil6210 0003:01:00.0: wil6210 device found [1ae9:0310] (rev 2) bar size 0x200000
+
+[   16.861786] ------------[ cut here ]------------
+
+[   16.866395] WARNING: CPU: 2 PID: 404 at net/wireless/chan.c:34 cfg80211_chandef_create+0x68/0xf8 [cfg80211]
+
+[   16.876167] Modules linked in: wil6210(O+) pppox ppp_mppe ppp_generic nft_redir nft_nat nft_masq nft_fullcone(O) nft_flow_offload nft_fib_inet nft_ct nft_chain_nat nf_nat_tftp nf_nat_snmp_basic nf_nat_sip nf_nat_pptp nf_nat_irc nf_nat_h323 nf_nat_ftp nf_nat_amanda nf_nat nf_flow_table_inet nf_flow_table nf_conntrack_tftp nf_conntrack_snmp nf_conntrack_sip nf_conntrack_sane nf_conntrack_pptp nf_conntrack_netlink nf_conntrack_netbios_ns nf_conntrack_irc nf_conntrack_h323 nf_conntrack_ftp nf_conntrack_broadcast nf_conntrack_amanda nf_conntrack mac80211(O) ipt_REJECT cfg80211(O) xt_time xt_tcpudp xt_tcpmss xt_statistic xt_recent xt_quota xt_pkttype xt_owner xt_multiport xt_mark xt_mac xt_limit xt_length xt_hl xt_ecn xt_dscp xt_comment xt_cgroup xt_addrtype xt_TPROXY xt_TCPMSS xt_LOG xt_HL xt_DSCP xt_CLASSIFY wireguard ts_kmp ts_fsm ts_bm slhc sfp sch_cake nft_tproxy nft_socket nft_reject_ipv6 nft_reject_ipv4 nft_reject_inet nft_reject nft_quota nft_numgen nft_log nft_limit nft_hash nft_fib_ipv6 nft_fib_ipv4 nft_fib
+
+[   16.876462]  nft_compat nf_tproxy_ipv6 nf_tproxy_ipv4 nf_tables nf_socket_ipv6 nf_socket_ipv4 nf_reject_ipv4 nf_log_syslog nf_defrag_ipv6 nf_defrag_ipv4 mdio_i2c macvlan libcurve25519 libchacha20poly1305 iptable_mangle iptable_filter ipt_ECN ip_tables crc_ccitt compat(O) asn1_decoder fuse ntfs3 sch_tbf sch_ingress sch_htb sch_hfsc em_u32 cls_u32 cls_route cls_matchall cls_fw cls_flow cls_basic act_skbedit act_mirred act_gact ledtrig_usbport xt_set ip_set_list_set ip_set_hash_netportnet ip_set_hash_netport ip_set_hash_netnet ip_set_hash_netiface ip_set_hash_net ip_set_hash_mac ip_set_hash_ipportnet ip_set_hash_ipportip ip_set_hash_ipport ip_set_hash_ipmark ip_set_hash_ipmac ip_set_hash_ip ip_set_bitmap_port ip_set_bitmap_ipmac ip_set_bitmap_ip ip_set nfnetlink ip6table_mangle ip6table_filter ip6_tables ip6t_REJECT x_tables nf_reject_ipv6 msdos ifb udp_diag tcp_diag raw_diag inet_diag tun ovpn(O) udp_tunnel ip6_udp_tunnel nls_utf8 nls_iso8859_1 nls_cp437 xxhash_generic seqiv geniv cmac chacha20poly1305 blake2b_generic
+
+[   16.966086]  uas usb_storage leds_gpio xhci_plat_hcd xhci_pci xhci_hcd ohci_pci ohci_platform ohci_hcd ehci_pci ahci libahci libata fsl_mph_dr_of ehci_platform ehci_fsl sd_mod scsi_mod scsi_common ehci_hcd gpio_button_hotplug(O) xfs vfat fat f2fs ext4 mbcache jbd2 exfat btrfs xor xor_neon raid6_pq crc32_cryptoapi
+
+[   17.083635] CPU: 2 UID: 0 PID: 404 Comm: kmodloader Tainted: G           O        6.18.52 #0 NONE 
+
+[   17.083644] Tainted: [O]=OOT_MODULE
+
+[   17.083647] Hardware name: AnnapurnaLabs Alpine (Device Tree)
+
+[   17.083651] Call trace: 
+
+[   17.083657]  unwind_backtrace from show_stack+0x10/0x14
+
+[   17.083670]  show_stack from dump_stack_lvl+0x50/0x64
+
+[   17.083679]  dump_stack_lvl from __warn+0xd0/0xd4
+
+[   17.083687]  __warn from warn_slowpath_fmt+0x94/0x168
+
+[   17.083694]  warn_slowpath_fmt from cfg80211_chandef_create+0x68/0xf8 [cfg80211]
+
+[   17.083766]  cfg80211_chandef_create [cfg80211] from wil_cfg80211_init+0xf4/0x108 [wil6210]
+
+[   17.083884]  wil_cfg80211_init [wil6210] from wil_if_alloc+0xc/0xb8 [wil6210]
+
+[   17.084010]  wil_if_alloc [wil6210] from wil_pcie_probe+0xa0/0x9bc [wil6210]
+
+[   17.084142]  wil_pcie_probe [wil6210] from pci_device_probe+0xf4/0x1d4
+
+[   17.084211]  pci_device_probe from really_probe+0x11c/0x2d8
+
+[   17.084220]  really_probe from __driver_probe_device+0x170/0x1c0
+
+[   17.084228]  __driver_probe_device from driver_probe_device+0x38/0xb4
+
+[   17.084237]  driver_probe_device from __driver_attach+0x10c/0x140
+
+[   17.084246]  __driver_attach from bus_for_each_dev+0x44/0x94
+
+[   17.084254]  bus_for_each_dev from bus_add_driver+0xc4/0x1f8
+
+[   17.084261]  bus_add_driver from driver_register+0xcc/0x10c
+
+[   17.084271]  driver_register from init_module+0x2c/0x44 [wil6210]
+
+[   17.084347]  init_module [wil6210] from do_one_initcall+0x6c/0x26c
+
+[   17.084415]  do_one_initcall from do_init_module+0x54/0x220
+
+[   17.084428]  do_init_module from sys_init_module+0x174/0x1d8
+
+[   17.084441]  sys_init_module from ret_fast_syscall+0x0/0x4c
+
+[   17.084450] Exception stack(0xc1e2dfa8 to 0xc1e2dff0)
+
+[   17.084457] dfa0:                   00000000 00000000 b6e8b2b0 00052c80 0001361d 00000017
+
+[   17.084463] dfc0: 00000000 00000000 b6e8b2b0 00000080 0001361d 00052c80 0001504c 00015004
+
+[   17.084467] dfe0: be8c4d2c be8c4d10 0001202c b6f6aaf0
+
+[   17.084471] ---[ end trace 0000000000000000 ]---
+
+[   17.262896] wil6210 0003:01:00.0: enabling device (0140 -> 0142)
+
+[   17.268945] wil6210 0003:01:00.0 (unnamed net_device) (uninitialized): wil_pcie_probe: CSR at [mem 0xf0200000-0xf03fffff 64bit] -> 0x4cb396a0
+
+[   17.281701] wil6210 0003:01:00.0 (unnamed net_device) (uninitialized): wil_set_capabilities: Board hardware is Sparrow B0, flash exist
+
+[   17.293767] wil6210 0003:01:00.0 (unnamed net_device) (uninitialized): wil_set_capabilities: platform_capa 0x0
+
+[   17.367445] wil6210 0003:01:00.0 (unnamed net_device) (uninitialized): wil_refresh_fw_capabilities: keep_radio_on_during_sleep (0)
+
+[   17.379201] wil6210 0003:01:00.0: using dma mask 48
+
+[   17.384091] wil6210 0003:01:00.0 (unnamed net_device) (uninitialized): wil_if_pcie_enable: 3 MSI mode failed, try 1 MSI
+
+[   17.458955] wil6210 0003:01:00.0 (unnamed net_device) (uninitialized): wil_get_bl_info: Boot Loader struct v2: MAC = 04:ce:14:xx:xx:xx RF = 0x0000 (status 0x0000) bband = 0x00000000
+
+[   17.475104] wil6210 0003:01:00.0 (unnamed net_device) (uninitialized): wil_get_bl_info: Boot Loader build 255.255.0.6836
+
+[   17.485963] wil6210 0003:01:00.0 (unnamed net_device) (uninitialized): wil_set_oob_mode: oob_mode to 0
+
+[   17.510244] irq: no irq domain found for pcie-legacy-intc !
+
+[   17.516478] ath10k_pci 0001:03:00.0: enabling device (0140 -> 0142)
+
+[   17.523154] ath10k_pci 0001:03:00.0: pci irq msi oper_irq_mode 2 irq_mode 0 reset_mode 0
+
+[   17.810426] ath10k_pci 0001:03:00.0: qca9984/qca9994 hw1.0 target 0x01000000 chip_id 0x00000000 sub 168c:cafe
+
+[   17.820347] ath10k_pci 0001:03:00.0: kconfig debug 0 debugfs 1 tracing 0 dfs 1 testmode 0
+
+[   17.832167] ath10k_pci 0001:03:00.0: firmware ver 10.4-3.9.0.2-00157 api 5 features no-p2p,mfp,peer-flow-ctrl,btcoex-param,allows-mesh-bcast,no-ps,peer-fixed-rate,iram-recovery crc32 6cdc6ff9
+
+[   20.147432] ath10k_pci 0001:03:00.0: board_file api 2 bmi_id 0:1 crc32 f3dda2f5
+
+[   23.902863] ath10k_pci 0001:03:00.0: htt-ver 2.2 wmi-op 6 htt-op 4 cal pre-cal-nvmem max-sta 512 raw 0 hwcrypto 1
+
+[   24.019267] irq: no irq domain found for pcie-legacy-intc !
+
+[   24.025336] ath10k_pci 0001:04:00.0: enabling device (0140 -> 0142)
+
+[   24.032021] ath10k_pci 0001:04:00.0: pci irq msi oper_irq_mode 2 irq_mode 0 reset_mode 0
+
+[   24.197915] ath10k_pci 0001:04:00.0: qca9984/qca9994 hw1.0 target 0x01000000 chip_id 0x00000000 sub 168c:cafe
+
+[   24.207845] ath10k_pci 0001:04:00.0: kconfig debug 0 debugfs 1 tracing 0 dfs 1 testmode 0
+
+[   24.219663] ath10k_pci 0001:04:00.0: firmware ver 10.4-3.9.0.2-00157 api 5 features no-p2p,mfp,peer-flow-ctrl,btcoex-param,allows-mesh-bcast,no-ps,peer-fixed-rate,iram-recovery crc32 6cdc6ff9
+
+[   26.518407] ath10k_pci 0001:04:00.0: board_file api 2 bmi_id 0:2 crc32 f3dda2f5
+
+[   28.109001] amba fd891000.timer1: deferred probe pending: (reason unknown)
+
+[   30.283255] ath10k_pci 0001:04:00.0: htt-ver 2.2 wmi-op 6 htt-op 4 cal pre-cal-nvmem max-sta 512 raw 0 hwcrypto 1
+
+[   30.392580] kmodloader: done loading kernel modules from /etc/modules.d/*
+
+[   43.734067] al_eth 0000:00:00.0 eth0: al_eth_open
+
+[   43.738782] al_eth 0000:00:00.0 eth0: al_eth_open: no phy, use_lm 1
+
+[   43.746523] br-lan: port 1(eth0) entered blocking state
+
+[   43.751827] br-lan: port 1(eth0) entered disabled state
+
+[   43.757077] al_eth 0000:00:00.0 eth0: entered allmulticast mode
+
+[   43.763219] al_eth 0000:00:00.0 eth0: entered promiscuous mode
+
+[   43.860374] al_eth 0000:00:01.0 eth1: al_eth_open
+
+[   43.865101] al_eth 0000:00:01.0 eth1: al_eth_open: no phy, use_lm 0
+
+[   43.871402] al_eth 0000:00:01.0 eth1: al_eth_up
+
+[   43.875990] al_eth_drv: configured MAC to RGMII mode:
+
+[   43.881060] al_eth_drv: eth [al_eth_1]: set link speed to 1000Mbps. full duplex.
+
+[   43.889485] al_eth 0000:00:01.0 eth1: using MSI-X per Queue interrupt mode
+
+[   43.902389] br-lan: port 2(eth1.1) entered blocking state
+
+[   43.907796] br-lan: port 2(eth1.1) entered disabled state
+
+[   43.913272] eth1.1: entered allmulticast mode
+
+[   43.917629] al_eth 0000:00:01.0 eth1: entered allmulticast mode
+
+[   43.923753] eth1.1: entered promiscuous mode
+
+[   43.928025] al_eth 0000:00:01.0 eth1: entered promiscuous mode
+
+[   43.934083] br-lan: port 2(eth1.1) entered blocking state
+
+[   43.939502] br-lan: port 2(eth1.1) entered forwarding state
+
+[   43.951705] al_eth 0000:00:03.0 eth2: al_eth_open
+
+[   43.956423] al_eth 0000:00:03.0 eth2: al_eth_open: no phy, use_lm 0
+
+[   43.962747] al_eth 0000:00:03.0 eth2: al_eth_up
+
+[   43.967442] al_eth_drv: configured MAC to RGMII mode:
+
+[   43.972527] al_eth_drv: eth [al_eth_2]: set link speed to 1000Mbps. full duplex.
+
+[   43.980964] al_eth 0000:00:03.0 eth2: using MSI-X per Queue interrupt mode
+
+[   50.819167] ath10k_pci 0001:03:00.0: Unknown eventid: 36933
+
+[   50.832144] br-lan: port 3(5GHz-radio1) entered blocking state
+
+[   50.837982] br-lan: port 3(5GHz-radio1) entered disabled state
+
+[   50.843843] ath10k_pci 0001:03:00.0 5GHz-radio1: entered allmulticast mode
+
+[   50.850882] ath10k_pci 0001:03:00.0 5GHz-radio1: entered promiscuous mode
+
+[   57.224753] ath10k_pci 0001:04:00.0: Unknown eventid: 36933
+
+[   57.232493] br-lan: port 4(2.4GHz-radio2) entered blocking state
+
+[   57.238500] br-lan: port 4(2.4GHz-radio2) entered disabled state
+
+[   57.244539] ath10k_pci 0001:04:00.0 2.4GHz-radio2: entered allmulticast mode
+
+[   57.251756] ath10k_pci 0001:04:00.0 2.4GHz-radio2: entered promiscuous mode
+
+[   57.258786] br-lan: port 4(2.4GHz-radio2) entered blocking state
+
+[   57.264798] br-lan: port 4(2.4GHz-radio2) entered forwarding state
+
+[   57.271478] br-lan: port 4(2.4GHz-radio2) entered disabled state
+
+[   57.494724] br-lan: port 3(5GHz-radio1) entered blocking state
+
+[   57.500582] br-lan: port 3(5GHz-radio1) entered forwarding state
+
+[   59.268673] br-lan: port 4(2.4GHz-radio2) entered blocking state
+
+[   59.274693] br-lan: port 4(2.4GHz-radio2) entered forwarding state
+

@@ -13,6 +13,19 @@
 | 60GHz | QCA9500（wil6210，默认禁用） |
 | 交换 | ar8327 系 |
 
+## 🌐 默认网络参数
+
+| 项目 | 默认值 | 说明 |
+|---|---|---|
+| **LAN IP** | **`10.0.0.1/24`** | 首启由 `target/linux/alpine/base-files/etc/uci-defaults/99-lan-ip` 设置，避免与国内光猫常见的 `192.168.1.1` 网段冲突导致进不了管理页 |
+| Web 管理 | `http://10.0.0.1` | LuCI；**默认 root 无密码**，首次登录请立即设置 |
+| SSH | `ssh root@10.0.0.1` | 同样默认无密码，建议配置公钥后关闭密码登录 |
+| DHCP | `10.0.0.100` 起 | 由 dnsmasq 自动生成 |
+| 2.4G Wi-Fi | 信道 1 / HT40，SSID `Openwrt`，密码 `12345678` | 由 `99-wifi-preset` 预设，请自行修改 |
+| 5G Wi-Fi | 信道 149 / VHT80，SSID `Openwrt`，密码 `12345678` | 149 属 UNII-3，非 DFS，无需 CAC |
+| 60G Wi-Fi | 默认关闭；接口 `60GHz-radio0`，SSID `R9000-60G` | 开源 wil6210 驱动不稳定，默认禁用 |
+| 监管域 | `CN` | 5G 可用信道按中国区 |
+
 ## 🛠️ 分支目前状态
 
 * **[已修复] 网口逻辑顺序**：修正上游源码中 WAN/LAN 错乱的问题，有线网络、拨号及有线转发完全正常。
@@ -33,6 +46,17 @@
 | factory.img | 61,866,113 字节 |
 | sha256 | `74f01683725b87c6a42bac65661c12bc6afb88fec3f0ebb07cc9b5376d4a5782` |
 | manifest | 369 个包 / 10 个 zh-cn 语言包 |
+
+## 📋 实测日志（脱敏）
+
+`docs/logs/` 收录本机实测串口与刷机日志，已脱敏（MAC 仅保留 OUI、后三字节替换为 `xx`；SSID `NETGEAR09*` 替换为 `MYSSID*`）：
+
+| 文件 | 内容 |
+|---|---|
+| `docs/logs/boot-stock-nmrp.log` | 原厂固件 + nmrpflash 刷机全过程 |
+| `docs/logs/boot-ath10k-ct.log` | ath10k-ct 版本启动日志 |
+| `docs/logs/boot-ath10k.log` | 上游 ath10k 版本启动日志 |
+| `docs/logs/boot-2x2.log` | chainmask 0x3（2×2）版本启动日志 |
 
 ## 🚀 快速编译
 
