@@ -1,0 +1,13 @@
+--- a/drivers/net/wireless/ath/ath10k/wmi.c
++++ b/drivers/net/wireless/ath/ath10k/wmi.c
+@@ -5588,6 +5588,12 @@
+ 	if (!ar->cfg_tx_chainmask) {
+ 		ar->cfg_tx_chainmask = (1 << ar->num_rf_chains) - 1;
+ 		ar->cfg_rx_chainmask = (1 << ar->num_rf_chains) - 1;
+ 	}
++
++	/* R9000: chains 2/3 are weak, limit to 2x2 (chains 0/1) */
++	if (ar->cfg_tx_chainmask > 0x3) {
++		ar->cfg_tx_chainmask = 0x3;
++		ar->cfg_rx_chainmask = 0x3;
++	}

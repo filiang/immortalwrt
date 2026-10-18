@@ -48,9 +48,13 @@ set_iface() {
 	config_get dev "$cfg" device
 	config_get dband "$dev" band
 
-	# 所属射频是 60GHz 的接口一并关闭
+	# 所属射频是 60GHz 的接口一并关闭，并使用明确名称
 	if [ "$dband" = "60g" ]; then
 		uci -q set wireless."$cfg".disabled='1'
+		# 避免继承默认 SSID "ImmortalWrt"（有歧义）
+		uci -q set wireless."$cfg".ssid='R9000-60G'
+		uci -q set wireless."$cfg".encryption='psk2'
+		uci -q set wireless."$cfg".key="$KEY"
 		return 0
 	fi
 
