@@ -1238,7 +1238,7 @@
 					compatible = "pci168c,0046";
 					reg = <0 0 0 0 0>;
 
-					nvmem-cells = <&macaddr_art_c 1>, <&precal_art_5000>;
+					nvmem-cells = <&macaddr_art_c 1>, <&precal_art_1000>;
 					nvmem-cell-names = "mac-address", "pre-calibration";
 				};
 			};
@@ -1254,7 +1254,7 @@
 					compatible = "pci168c,0046";
 					reg = <0 0 0 0 0>;
 
-					nvmem-cells = <&macaddr_art_c 2>, <&precal_art_1000>;
+					nvmem-cells = <&macaddr_art_c 2>, <&precal_art_5000>;
 					nvmem-cell-names = "mac-address", "pre-calibration";
 				};
 			};
