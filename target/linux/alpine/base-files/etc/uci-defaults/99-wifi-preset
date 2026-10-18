@@ -30,7 +30,7 @@ set_radio() {
 		uci -q set wireless."$cfg".disabled='0'
 		# 149 属 UNII-3，非 DFS；149-161 可组满 80MHz，无需 CAC
 		uci -q set wireless."$cfg".channel='149'
-		uci -q set wireless."$cfg".htmode='VHT40'
+		uci -q set wireless."$cfg".htmode='VHT80'
 		;;
 	60g)
 		# 关闭 60GHz 射频
