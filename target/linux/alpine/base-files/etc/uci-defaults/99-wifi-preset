@@ -30,7 +30,7 @@ set_radio() {
 	5g)
 		# 5G 默认开启：channel 149 / VHT80 / txpower 15 dBm（固定）
 		# 实测：30 dBm 会使功放非线性、下行退化为 MCS1；16 dBm 会导致设备掉线。
-		# 只使用 15 dBm，不再调整功率；4x4 测试版：chainmask 补丁已移除。
+		# 只使用 15 dBm，不再调整功率；2x2 chainmask 由 ath10k 补丁固定。
 		uci -q set wireless."$cfg".disabled='0'
 		uci -q set wireless."$cfg".channel='149'
 		uci -q set wireless."$cfg".htmode='VHT80'
